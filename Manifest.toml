@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "ebcd8923fc077adcf716fb65cc0d8051ce4a3f3f"
+project_hash = "1a24329c4871effe4a35e86be2c70f94a1bcec3d"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "aa4d425271a914d8c4af6ad9fccb6eb3aec662c7"
@@ -2750,9 +2750,9 @@ version = "5.34.0"
 
 [[deps.SysInfo]]
 deps = ["Dates", "DelimitedFiles", "Hwloc", "PrecompileTools", "Random", "Serialization"]
-git-tree-sha1 = "136ff4b8ef6d6ecc513a48bb2eceb9c9a8cbb893"
+git-tree-sha1 = "1bec4ef2499c4dbce0f29eb35700062bf471a83c"
 uuid = "90a7ee08-a23f-48b9-9006-0e0e2a9e4608"
-version = "0.2.0"
+version = "0.2.1"
 
 [[deps.TOML]]
 deps = ["Dates"]

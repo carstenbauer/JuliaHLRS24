@@ -13,9 +13,12 @@ using PythonCall
 println("\n\n\tLoading CUDA (to trigger lazy artifact downloads) ...");
 flush(stdout);
 using CUDA
-CUDA.precompile_runtime()
-if CUDA.functional()
-    CUDA.versioninfo()
+isoncluster() = isdir("/zhome")
+if isoncluster()
+    CUDA.precompile_runtime()
+    if CUDA.functional()
+        CUDA.versioninfo()
+    end
 end
 
 println("\n\n\tInstalling mpiexecjl ...");
@@ -28,9 +31,10 @@ println("\t\texport PATH=$(joinpath(DEPOT_PATH[1], "bin")):\$PATH");
 flush(stdout);
 println("\t!!!!!!!!!!")
 
-if length(ARGS) == 1 && ARGS[1] == "full" && Sys.islinux()
-    println("\n\n\t -- FULL MODE: Modifying `.bashrc` ...!")
+if length(ARGS) == 1 && ARGS[1] == "full" && (Sys.islinux() || Sys.isapple())
+    println("\n\n\t -- FULL MODE: Modifying `.bashrc`/`.zshrc` ...!")
     bashrc = joinpath(ENV["HOME"], ".bashrc")
+    zshrc = joinpath(ENV["HOME"], ".zshrc")
     if isfile(bashrc)
         entry = "\nexport PATH=$(joinpath(first(DEPOT_PATH), "bin")):\$PATH\n"
         open(bashrc, "a") do f
@@ -39,11 +43,21 @@ if length(ARGS) == 1 && ARGS[1] == "full" && Sys.islinux()
     else
         println("\t\t `.bashrc` not found. Skipping!")
     end
+    if isfile(zshrc)
+        entry = "\nexport PATH=$(joinpath(first(DEPOT_PATH), "bin")):\$PATH\n"
+        open(zshrc, "a") do f
+            write(f, entry)
+        end
+    else
+        println("\t\t `.zshrc` not found. Skipping!")
+    end
 
-    println("\n\n\t -- FULL MODE: Installing LIKWID ...!")
-    likwid_dir = joinpath(@__DIR__, "orga", "likwid_local_install")
-    cd(likwid_dir) do
-        run(`sh install_likwid.sh`)
+    if Sys.islinux()
+        println("\n\n\t -- FULL MODE: Installing LIKWID ...!")
+        likwid_dir = joinpath(@__DIR__, "orga", "likwid_local_install")
+        cd(likwid_dir) do
+            run(`sh install_likwid.sh`)
+        end
     end
 end
 

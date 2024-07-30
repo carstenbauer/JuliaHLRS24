@@ -2,6 +2,7 @@
 AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
 AllocCheck = "9b6a8646-10ed-4001-bbdc-1d2f46dfbb1a"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+Bumper = "8ce10254-0962-460f-a3d8-1f77fea1446e"
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 ChunkSplitters = "ae650224-84b6-46f8-82ea-d812ca08434e"
 CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"

@@ -4,7 +4,7 @@
 
 ### `1_perf_optimization`
 
-Given examplatory code snippets, your task will be to optimize them (as much as you can/want to) by utilizing parts of what you've learned in the morning.
+Given an examplatory code snippet, your task will be to optimize it (as much as you can/want to) by utilizing parts of what you've learned in the morning.
 
 ### `2_SIMD_datadep`
 

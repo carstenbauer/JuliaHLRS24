@@ -8,7 +8,7 @@ In this exercise you will benchmark a **Schoenauer triad** kernel (i.e. `a[i] = 
 
 **Memory hierarchy**
 
-<img src="./imgs/memory_hierarchy.png" width=500px>
+<img src="./imgs/memory_hierarchy.svg" width=500px>
 
 <br>
 

@@ -1,7 +1,5 @@
 # Exercise: Cache Bandwidths
 
-**Note: This exercise should be done on a cluster compute node.**
-
 In this exercise you will benchmark a **Schoenauer triad** kernel (i.e. `a[i] = b[i] + c[i] * d[i]`) and see how the observed performance is effected by the memory hierarchy, i.e. different cache levels (see image below).
 
 <br>
@@ -18,6 +16,8 @@ In this exercise you will benchmark a **Schoenauer triad** kernel (i.e. `a[i] = 
 using CpuId
 cachesize()
 ```
+
+**Note: Ideally, this exercise should be done on a cluster compute node. You can either follow the instructions below or use the Jupyter notebook `cache_bandwidths.ipynb`.**
 
 ## Tasks
 

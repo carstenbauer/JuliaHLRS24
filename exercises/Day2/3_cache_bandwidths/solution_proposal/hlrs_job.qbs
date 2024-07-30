@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N cache_bandwidths
-#PBS -l select=1:node_type=skl
+#PBS -l select=1:node_type=skl:mem=5gb:ncpus=1
 #PBS -l walltime=00:15:00
 #PBS -j oe
 #PBS -o hlrs_job.output

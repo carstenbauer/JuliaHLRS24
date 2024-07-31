@@ -13,7 +13,7 @@ using PythonCall
 println("\n\n\tLoading CUDA (to trigger lazy artifact downloads) ...");
 flush(stdout);
 using CUDA
-isoncluster() = isdir("/zhome")
+isoncluster() = isdir("/zhome") || isdir("/shared")
 if isoncluster()
     CUDA.precompile_runtime()
     if CUDA.functional()

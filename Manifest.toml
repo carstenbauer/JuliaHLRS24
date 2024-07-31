@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "7dfdc9539abba4b2d5e89ad52d8cbb4fc5bc29e1"
+project_hash = "3876aaea8357fa0365ff44aff7c0c12fb7f1f6e1"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "aa4d425271a914d8c4af6ad9fccb6eb3aec662c7"
@@ -2824,6 +2824,13 @@ git-tree-sha1 = "42fd9023fef18b9b78c8343a4e2f3813ffbcefcb"
 pinned = true
 uuid = "1c621080-faea-4a02-84b6-bbd5e436b8fe"
 version = "1.0.0"
+
+[[deps.ThreadPinning]]
+deps = ["DelimitedFiles", "DocStringExtensions", "Libdl", "LinearAlgebra", "PrecompileTools", "Preferences", "Random", "StableTasks"]
+git-tree-sha1 = "333748c6fa62868fa039f00ba670d619776a6752"
+pinned = true
+uuid = "811555cd-349b-4f26-b7bc-1f208b848042"
+version = "0.7.22"
 
 [[deps.ThreadPinningCore]]
 deps = ["LinearAlgebra", "PrecompileTools", "StableTasks"]

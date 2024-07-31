@@ -1,0 +1,10 @@
+CPU - Vectorized:
+T_eff = 0.68 GB/s, Time = 9.6031e+00 s 
+CPU - Loop - Multithreaded (2 threads):
+T_eff = 1.60 GB/s, Time = 4.1674e+00 s 
+GPU - Vectorized:
+T_eff = 31.00 GB/s, Time = 2.1033e-01 s 
+GPU - Kernels:
+T_eff = 100.00 GB/s, Time = 6.2902e-02 s 
+Job for ftrm@12080.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12080.cl7intern.service" and "journalctl -xe" for details.

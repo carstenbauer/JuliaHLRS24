@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N heat_diffusion
-#PBS -l select=1:node_type=clx-ai:ncpus=4:mem=16gb
+#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
 #PBS -l walltime=00:15:00
 #PBS -q smp
 #PBS -j oe

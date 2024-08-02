@@ -1,0 +1,15 @@
+rank 0 of 5: destination=1, source=4
+rank 1 of 5: destination=2, source=0
+rank 2 of 5: destination=3, source=1
+rank 3 of 5: destination=4, source=2
+rank 4 of 5: destination=0, source=3
+(rank, device(send_mesg), device(recv_mesg)) = (0, CuDevice(0), CuDevice(0))
+(rank, device(send_mesg), device(recv_mesg)) = (1, CuDevice(1), CuDevice(1))
+(rank, device(send_mesg), device(recv_mesg)) = (2, CuDevice(2), CuDevice(2))
+(rank, device(send_mesg), device(recv_mesg)) = (3, CuDevice(3), CuDevice(3))
+(rank, device(send_mesg), device(recv_mesg)) = (4, CuDevice(4), CuDevice(4))
+recv_mesg on proc 1: [0.0, 0.0, 0.0, 0.0]
+recv_mesg on proc 2: [1.0, 1.0, 1.0, 1.0]
+recv_mesg on proc 3: [2.0, 2.0, 2.0, 2.0]
+recv_mesg on proc 0: [4.0, 4.0, 4.0, 4.0]
+recv_mesg on proc 4: [3.0, 3.0, 3.0, 3.0]

@@ -4,7 +4,7 @@
 
 ### `1_montecarlo_pi_multithreading`
 
-**Learnings:** multithreading a simple algorithm, balancing uniform and non-uniform workload.
+**Learnings:** multithreading a simple algorithm, uniform and non-uniform workload.
 
 In this exercise, you will parallelize the famous Monte Carlo algorithm that can produce the value of π=3.141... with desirable precision. Specifically, you will parallelize the algorithm using Julia's multithreading tools (e.g. `@threads` and `@spawn`).
 
@@ -16,9 +16,9 @@ Considering the 2D diffusion equation, you will implement a multithreaded, itera
 
 **Note:** Later in the course, we will come back to this very solver and (1) move it to the GPU and (2) parallelize it with MPI, to run it on multiple compute nodes (and multiple GPUs).
 
-### `3_daxpy_cpu` (cluster needed)
+### `3_daxpy_cpu` (cluster only)
 
-**Learnings:** NUMA domains, thread pinning, maximal memory bandwidth of a compute node.
+**Learnings:** NUMA domains, thread pinning, maximal memory bandwidth.
 
 You'll consider a multithreaded DAXPY kernel and will study how thread pinning and (implicit) memory pinning can influence the performance dramatically. Using the DAXPY kernel, you will estimate the maximal memory bandwidth (GB/s) of the system.
 
@@ -26,7 +26,7 @@ You'll consider a multithreaded DAXPY kernel and will study how thread pinning a
 
 ### `4_saxpy_gpu`
 
-**Learnings:** using GPU array abstractions, writing a basic CUDA kernel, maximal memory bandwidth of a GPU.
+**Learnings:** using GPU array abstractions, writing a basic CUDA kernel, maximal memory bandwidth (GPU).
 
 You'll try to measure the maximal, obtainable memory bandwidth of a GPU. To that end, you'll consider different GPU implementations of SAXPY. Specifically, you'll move the computation to the GPU using array abstractions and will then hand-write a custom CUDA kernel. Afterwards, you'll compare your variants to a built-in CUBLAS implementation by NVIDIA.
 

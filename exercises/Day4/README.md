@@ -22,7 +22,7 @@ You will implement (parts of) a MPI-parallel solver, this time for the 1D diffus
 
 ### `4_mpi_bcast`
 
-**Learnings:** even simple things are hard to do efficiently
+**Learnings:** even basic things are hard to do efficiently
 
 In this exercise, we will implement our own basic variants of `MPI.Bcast!` (broadcasting) using basic MPI primitives. Specifically, you'll write a "naive" version and a more efficient binary-tree based variant.
 

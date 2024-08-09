@@ -38,7 +38,7 @@ We'll revisit the 2D diffusion example (see `diffusion_2d_multithreaded` above) 
 
 ### `5_juliaset_gpu`
 
-**Learnings:** (very simple) example of hardware-agnostic coding
+**Learnings:** CPU and GPU performance, a glimpse at hardware-agnostic coding
 
 In this exercise, we consider the problem of computing an image of the Julia Set. We will compare a CPU variant to a parallel GPU variant (custom CUDA kernel). Both implementations will call the same Julia function.
 

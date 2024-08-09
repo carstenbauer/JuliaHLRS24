@@ -10,7 +10,7 @@ In this exercise, you will parallelize the famous Monte Carlo algorithm that can
 
 ### `2_diffusion_2d_multithreading`
 
-**Learnings:** solving a physical (stencil) problem in parallel 
+**Learnings:** solving a physical (stencil) problem in parallel, strong scaling benchmark
 
 Considering the 2D diffusion equation, you will implement a multithreaded, iterative stencil solver for the equation.
 
@@ -18,7 +18,7 @@ Considering the 2D diffusion equation, you will implement a multithreaded, itera
 
 ### `3_daxpy_cpu` (cluster needed)
 
-**Learnings:** NUMA domains, thread pinning.
+**Learnings:** NUMA domains, thread pinning, maximal memory bandwidth of a compute node.
 
 You'll consider a multithreaded DAXPY kernel. You'll explore the basic topology of a Noctua 2 compute node and will study how thread affinity and memory initialization can influence the performance dramatically (keyword: NUMA). You'll estimate the scaling of the maximal memory bandwidth on a Noctua 2 node as a function of the number of Julia threads.
 
@@ -26,13 +26,21 @@ You'll consider a multithreaded DAXPY kernel. You'll explore the basic topology 
 
 ### `4_saxpy_gpu`
 
-You'll try to measure the maximal, obtainable memory bandwidth of an NVIDIA A100 GPU. To that end, you'll consider different realizations of a SAXPY kernel running on the GPU. Specifically, you'll move the SAXPY computation to the GPU via array abstractions and will then hand-write a custom CUDA kernel. Afterwards, you'll compare your variants to a built-in CUBLAS implementation by NVIDIA.
+**Learnings:** using GPU array abstractions, writing a basic CUDA kernel, maximal memory bandwidth of a GPU.
+
+You'll try to measure the maximal, obtainable memory bandwidth of a GPU. To that end, you'll consider different GPU implementations of SAXPY. Specifically, you'll move the computation to the GPU using array abstractions and will then hand-write a custom CUDA kernel. Afterwards, you'll compare your variants to a built-in CUBLAS implementation by NVIDIA.
 
 ### `5_diffusion_2d_gpu`
 
+**Learnings:** moving an iterative stencil solver to the GPU, strong scaling benchmark
+
+We'll revisit the 2D diffusion example (see `diffusion_2d_multithreaded` above) and translate the multithreaded computation into a CUDA kernel. How much more efficient will the GPU variant be?
+
 ### `5_juliaset_gpu`
 
-In this exercise, we will revisit the problem of computing an image of the Julia Set. But this time we will compare a sequential CPU variant to a parallel GPU implementation (using a custom CUDA kernel).
+**Learnings:** a glimpse into hardware-agnostic coding
+
+In this exercise, we consider the problem of computing an image of the Julia Set. We will compare a CPU variant to a parallel GPU implementation (a custom CUDA kernel) which both call the same Julia function.
 
 
 

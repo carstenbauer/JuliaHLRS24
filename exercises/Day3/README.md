@@ -56,13 +56,15 @@ In this exercise, we consider the problem of computing an image of the Julia Set
 
 
 
-## Old
+## If you need even more
 
-### `2_juliaset` (multithreading)
+### `more/juliaset` (multithreading)
 
-Here, we will compute an image of the [Julia set](https://en.wikipedia.org/wiki/Julia_set) using a sequential and and two multithreaded variants (`@threads` and `@spawn`). In particular, you will see the benefit of load balancing for certain workloads.
+**Learnings:** load-balancing and that you don't get it with `@threads`.
 
-### `6_heat_diffusion` (GPU)
+Here, we will compute an image of the [Julia set](https://en.wikipedia.org/wiki/Julia_set) using a sequential and and two multithreaded variants (`@threads` and `@spawn`).
+
+### `more/heat_diffusion` (GPU)
 
 We'll consider the heat equation, a partial differential equation (PDE) describing the diffusion of heat over time, in two spatial dimensions. You will implement an explicit, iterative stencil solver for the equation and will learn how to move this solver from the CPU to the GPU by either using array abstractions or explicit CUDA kernels. Finally, you'll compare the performance of the different variants.
 

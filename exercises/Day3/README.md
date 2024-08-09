@@ -12,7 +12,7 @@ In this exercise, you will parallelize the famous Monte Carlo algorithm that can
 
 **Learnings:** solving a physical (stencil) problem in parallel, strong scaling benchmark
 
-Considering the 2D diffusion equation, you will implement a multithreaded, iterative stencil solver for the equation.
+Considering the 2D diffusion equation, you will implement a multithreaded, iterative stencil solver for the differential equation. The solver is based on Euler's method and finite differences.
 
 **Note:** Later in the course, we will come back to this very solver and (1) move it to the GPU and (2) parallelize it with MPI, to run it on multiple compute nodes (and multiple GPUs).
 

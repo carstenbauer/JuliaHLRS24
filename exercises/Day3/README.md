@@ -20,7 +20,7 @@ Considering the 2D diffusion equation, you will implement a multithreaded, itera
 
 **Learnings:** NUMA domains, thread pinning, maximal memory bandwidth of a compute node.
 
-You'll consider a multithreaded DAXPY kernel. You'll explore the basic topology of a Noctua 2 compute node and will study how thread affinity and memory initialization can influence the performance dramatically (keyword: NUMA). You'll estimate the scaling of the maximal memory bandwidth on a Noctua 2 node as a function of the number of Julia threads.
+You'll consider a multithreaded DAXPY kernel and will study how thread pinning and (implicit) memory pinning can influence the performance dramatically. Using the DAXPY kernel, you will estimate the maximal memory bandwidth (GB/s) of the system.
 
 ## GPU
 

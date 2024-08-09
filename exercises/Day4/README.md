@@ -14,7 +14,7 @@ In these exercises, you will parallelize a simple Monte Carlo algorithm that can
 
 We revisit the 2D diffusion example from yesterday and parallelize it using MPI. In principle, this enables us to run the code at scale. We will switch from a strong scaling to a weak scaling approach.
 
-### `3_mpi_diffusion_1d`
+### `3_mpi_diffusion_1d` (cluster recommended)
 
 **Learnings:** overlapping MPI communication with computation
 

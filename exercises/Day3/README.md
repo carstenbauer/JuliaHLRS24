@@ -10,7 +10,7 @@ In this exercise, you will parallelize the famous Monte Carlo algorithm that can
 
 ### `2_diffusion_2d_multithreading`
 
-**Learnings:** solving a physical (stencil) problem in parallel, strong scaling benchmark
+**Learnings:** solving a physical (stencil) problem in parallel, strong scaling benchmark.
 
 Considering the 2D diffusion equation, you will implement a multithreaded, iterative stencil solver for the differential equation. The solver is based on Euler's method and finite differences.
 
@@ -38,7 +38,7 @@ We'll revisit the 2D diffusion example (see `diffusion_2d_multithreaded` above) 
 
 ### `5_juliaset_gpu`
 
-**Learnings:** a (very simple) attempt at hardware-agnostic coding
+**Learnings:** (very simple) example of hardware-agnostic coding
 
 In this exercise, we consider the problem of computing an image of the Julia Set. We will compare a CPU variant to a parallel GPU variant (custom CUDA kernel). Both implementations will call the same Julia function.
 

@@ -16,14 +16,9 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-# for i in 128 256 512 1028
-for i in 512 2048 6144
+for i in 512 2048 6144 16384
 do
     echo -e "\n\n#### Run $i"
 
-    # echo -e "-- single threaded"
-    # julia --project --threads 1 diffusion_2d_threads.jl $i
-    # echo -e ""
-
-    julia --project --threads 8 bench_threads.jl $i # benchmark multithreaded variants
+    julia --project --threads 20 bench_threads.jl $i # benchmark multithreaded variants
 done

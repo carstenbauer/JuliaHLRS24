@@ -5,9 +5,10 @@ using ThreadPinning
 using Base.Threads
 
 const ncores_per_numa   = count(i->!ishyperthread(i), numa(1))
+const desired_nthreads  = max(ncores_per_numa, nnuma())
 
-if nthreads() != ncores_per_numa
-    println("ERROR: This exercise is supposed to be run with $(ncores_per_numa) Julia threads! Aborting.")
+if nthreads() != desired_nthreads
+    println("ERROR: This exercise is supposed to be run with $(desired_nthreads) Julia threads! Aborting.")
     exit(42)
 end
 

@@ -3,47 +3,12 @@ using Printf
 using Plots
 include(joinpath(@__DIR__, "shared.jl"))
 
-function init_arrays_threads(params)
-    (; ns, cs, parallel_init, static) = params
-    C  = Matrix{Float64}(undef, ns, ns)
-    C2 = Matrix{Float64}(undef, ns, ns)
-    if parallel_init
-        # parallel initialization
-        if static
-            # static scheduling
-            Threads.@threads :static for iy in axes(C, 2)
-                for ix in axes(C, 1)
-                    C[ix, iy]  = exp(- cs[ix]^2 - cs[iy]^2)
-                    C2[ix, iy] = C[ix, iy] # element-wise copy
-                end
-            end
-        else
-            # dynamic scheduling
-            Threads.@threads :dynamic for iy in axes(C, 2)
-                for ix in axes(C, 1)
-                    C[ix, iy]  = exp(- cs[ix]^2 - cs[iy]^2)
-                    C2[ix, iy] = C[ix, iy] # element-wise copy
-                end
-            end
-        end
-    else
-        # serial initialization
-        for iy in axes(C, 2)
-            for ix in axes(C, 1)
-                C[ix, iy]  = exp(- cs[ix]^2 - cs[iy]^2)
-                C2[ix, iy] = C[ix, iy] # element-wise copy
-            end
-        end
-    end
-    return C, C2
-end
-
-# to avoid writing nested finite-difference expression
+# convenience macros simply to avoid writing nested finite-difference expression
 macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(ds))) end
 macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(ds))) end
 
 function diffusion_step!(params, C2, C)
-    (; ds, dt, D, static) = params
+    (; ds, dt, D) = params
     if static
         # static scheduling
         Threads.@threads :static for iy in 1:size(C, 2)-2
@@ -94,6 +59,7 @@ end
 if do_run
     if !isempty(ARGS)
         # called from the command line with arguments
+        static = (length(ARGS) > 1 && ARGS[2] == "static") ? true : false
         run_diffusion(; ns=parse(Int, ARGS[1]), do_visualize=false)
     else
         run_diffusion(; do_visualize)

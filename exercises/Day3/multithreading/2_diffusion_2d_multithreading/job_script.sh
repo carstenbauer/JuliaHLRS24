@@ -1,9 +1,9 @@
 #!/bin/bash
-#PBS -N diff2dthreads_compare
+#PBS -N diff2dthreads
 #PBS -l select=1:node_type=skl:mem=5gb:ncpus=10
 #PBS -l walltime=00:10:00
 #PBS -j oe
-#PBS -o job_compare_threads_serial.out
+#PBS -o job_script.out
 #PBS -q smp
 
 WORKDIR=$(pwd)
@@ -16,7 +16,7 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-for i in 128 256 512 1028
+for i in 256 512 1028
 do
     echo -e "\n\n#### Run $i"
 
@@ -24,7 +24,11 @@ do
     julia --project --threads 1 diffusion_2d_threads.jl $i
     echo -e ""
 
-    echo -e "-- multithreaded (8 threads)"
-    julia --project --threads 8 diffusion_2d_threads.jl $i
+    echo -e "-- multithreaded (10 threads), dynamic scheduling"
+    julia --project --threads 10 diffusion_2d_threads.jl $i
+    echo -e ""
+
+    echo -e "-- multithreaded (10 threads), static scheduling"
+    julia --project --threads 10 diffusion_2d_threads.jl $i static
     echo -e ""
 done

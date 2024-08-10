@@ -18,4 +18,4 @@ fi
 cd $WORKDIR
 
 # run program
-julia --project saxpy_gpu_exercise.jl
+julia --project saxpy_gpu.jl

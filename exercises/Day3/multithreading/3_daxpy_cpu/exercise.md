@@ -1,6 +1,6 @@
-# Exercise: DAXPY on Noctua 2 Node
+# Exercise: DAXPY on Cluster Node
 
-**Note: For this exercise you will need an entire Noctua 2 compute node.**
+**Note: For this exercise you will need an entire compute node exclusively.**
 
 In this exercise we want to analyze the performance of a **"DAXPY"** kernel:
 
@@ -26,7 +26,7 @@ where `a` is a scalar and `x` and `y` are vectors.
 <br>
 
 Because the kernel is all about data access, we can use it to
-* try to estimate the **maximal memory bandwidth** of a Noctua 2 node
+* try to estimate the **maximal memory bandwidth** of a system
 * learn about the effect of **thread pinning** and **NUMA** (non-uniform memory access)
 
 Before we start with the actual exercise tasks, let's give a little bit of background and explore the architecture of a Noctua 2 node.

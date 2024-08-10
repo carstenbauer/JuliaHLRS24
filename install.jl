@@ -1,3 +1,13 @@
+isoncluster() = isdir("/zhome") || isdir("/shared")
+println("\n\n\tUsing ", isoncluster() ? "cluster" : "default", " preferences.")
+if isoncluster()
+    cp(joinpath(@__DIR__, "LocalPreferences_Cluster.toml"),
+        joinpath(@__DIR__, "LocalPreferences.toml"); force=true)
+else
+    cp(joinpath(@__DIR__, "LocalPreferences_Default.toml"),
+        joinpath(@__DIR__, "LocalPreferences.toml"); force=true)
+end
+
 using Pkg
 println("\n\n\tActivating environment in $(pwd())...")
 pkg"activate ."
@@ -13,7 +23,6 @@ using PythonCall
 println("\n\n\tLoading CUDA (to trigger lazy artifact downloads) ...");
 flush(stdout);
 using CUDA
-isoncluster() = isdir("/zhome") || isdir("/shared")
 if isoncluster()
     CUDA.precompile_runtime()
     if CUDA.functional()

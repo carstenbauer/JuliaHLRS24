@@ -13,7 +13,8 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
     WORKDIR=$PBS_O_WORKDIR
     # ... and load the module(s)
     ml julia
-    ml system/nvidia/ALL.ALL.550.54.15
+    ml nvidia/nvhpc
+    ml compiler/nvidia
 fi
 cd $WORKDIR
 

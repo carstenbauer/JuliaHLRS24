@@ -1,5 +1,5 @@
 ## PARAMETER INITIALIZATION
-function init_params(; ns=64, nt=ns^2÷40, kwargs...)
+function init_params(; ns=128, nt=ns^2÷40, kwargs...)
     L    = 10.0               # physical domain length
     D    = 1.0                # diffusion coefficient
     ds   = L / ns             # grid spacing

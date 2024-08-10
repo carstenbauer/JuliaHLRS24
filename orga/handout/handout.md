@@ -67,10 +67,7 @@ To get an interactive session on a (non-gpu) compute node run e.g.
 ```bash
 qsub -I -l select=1:node_type=skl:mem=3gb:ncpus=1 -l walltime=00:45:00 -q smp
 ```
-Here, `-I` indicates interactive mode and the walltime is set to 45 minutes. If you plan to use **MPI**, use the following to get an interactive session:
-```bash
-qsub -I -l select=1:node_type=skl:mem=10gb:ncpus=5:mpiprocs -l walltime=00:45:00 -q smp
-```
+Here, `-I` indicates interactive mode and the walltime is set to 45 minutes.
 
 ### Job submission
 

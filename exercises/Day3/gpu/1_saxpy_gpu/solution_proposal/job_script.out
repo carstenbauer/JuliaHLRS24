@@ -1,11 +1,19 @@
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
 ┌─────────────┬─────────┬─────────┬───────────┐
 │     Variant │ Runtime │   FLOPS │ Bandwidth │
 │             │      ms │ GFLOP/s │      GB/s │
 ├─────────────┼─────────┼─────────┼───────────┤
-│   Broadcast │ 10.0289 │ 107.064 │   642.387 │
-│ CUDA kernel │ 8.13441 │   132.0 │     792.0 │
-│      CUBLAS │ 8.14396 │ 131.845 │   791.071 │
+│   Broadcast │ 9.98759 │ 107.508 │   645.045 │
+│ CUDA kernel │ 8.13084 │ 132.058 │   792.347 │
+│      CUBLAS │ 8.14129 │ 131.888 │    791.33 │
 └─────────────┴─────────┴─────────┴───────────┘
 Theoretical Memory Bandwidth of NVIDIA V100: 900 GB/s
-Job for ftrm@12117.cl7intern.service failed because the control process exited with error code.
-See "systemctl status ftrm@12117.cl7intern.service" and "journalctl -xe" for details.
+Job for ftrm@12141.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12141.cl7intern.service" and "journalctl -xe" for details.

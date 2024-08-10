@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -N saxpy_gpu
-#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
+#PBS -N diff2dmpi_bench
+#PBS -l select=1:node_type=skl:mpiprocs=4
 #PBS -l walltime=00:10:00
-#PBS -q smp
 #PBS -j oe
-#PBS -o job_script.out
+#PBS -o job_script_bench.out
+#PBS -q smp
 
 WORKDIR=$(pwd)
 if [[ -n "${PBS_O_WORKDIR}" ]]; then
@@ -18,5 +18,9 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-# run program
-julia --project saxpy_gpu_solution.jl
+# hide some OpenMPI warnings/info messages on the cluster
+export OMPI_MCA_mpi_cuda_support=0
+export OMPI_MCA_btl_openib_warn_no_device_params_found=0
+
+# run MPI code
+mpiexecjl -n 4 julia --project diffusion_2d_mpi.jl 1024 nosave

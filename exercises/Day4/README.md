@@ -26,7 +26,7 @@ You will implement (parts of) a MPI-parallel solver, this time for the 1D diffus
 
 In this exercise, we will implement our own basic variants of `MPI.Bcast!` (broadcasting) using basic MPI primitives. Specifically, you'll write a "naive" version and a more efficient binary-tree based variant.
 
-### `5_diffusion_2d_multigpu` (cluster only)
+### `5_diffusion_2d_mpi_gpu` (cluster only)
 
 **Learnings:** solving a physical (stencil) problem in parallel with MPI on multiple GPUs
 

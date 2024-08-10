@@ -1,6 +1,6 @@
 #!/bin/bash
-#PBS -N diff2dgpu
-#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
+#PBS -N diff2dmpi
+#PBS -l select=1:node_type=skl:mpiprocs=4
 #PBS -l walltime=00:10:00
 #PBS -j oe
 #PBS -o job_script.out
@@ -18,9 +18,11 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-for i in 1024 2048 4096 8192 16384
-do
-    echo -e "\n\n#### GPU run ns=$i"
+# hide some OpenMPI warnings/info messages on the cluster
+export OMPI_MCA_mpi_cuda_support=0
+export OMPI_MCA_btl_openib_warn_no_device_params_found=0
 
-    julia --project diffusion_2d_gpu.jl $i
-done
+# run MPI code
+mpiexecjl -n 4 julia --project diffusion_2d_mpi.jl
+# combine the results and visualize them
+julia --project visualize_mpi.jl

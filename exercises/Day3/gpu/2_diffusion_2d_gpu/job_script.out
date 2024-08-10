@@ -1,22 +1,30 @@
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
 
 
 #### GPU run ns=1024
-Time = 1.9450e-01 s, T_eff = 42.27 GB/s 
+Time = 1.9407e-01 s, T_eff = 42.36 GB/s 
 
 
 #### GPU run ns=2048
-Time = 1.9183e-01 s, T_eff = 171.41 GB/s 
+Time = 1.9944e-01 s, T_eff = 164.88 GB/s 
 
 
 #### GPU run ns=4096
-Time = 1.9403e-01 s, T_eff = 677.89 GB/s 
+Time = 1.9784e-01 s, T_eff = 664.85 GB/s 
 
 
 #### GPU run ns=8192
-Time = 7.4315e-01 s, T_eff = 707.98 GB/s 
+Time = 7.4257e-01 s, T_eff = 708.53 GB/s 
 
 
 #### GPU run ns=16384
-Time = 2.9902e+00 s, T_eff = 703.82 GB/s 
-Job for ftrm@12115.cl7intern.service failed because the control process exited with error code.
-See "systemctl status ftrm@12115.cl7intern.service" and "journalctl -xe" for details.
+Time = 2.9898e+00 s, T_eff = 703.91 GB/s 
+Job for ftrm@12142.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12142.cl7intern.service" and "journalctl -xe" for details.

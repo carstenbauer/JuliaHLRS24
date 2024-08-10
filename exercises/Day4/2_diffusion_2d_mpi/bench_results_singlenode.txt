@@ -1,0 +1,9 @@
+# login node
+nprocs = 4, dims = (2, 2)
+Time = 5.1094e+00 s, T_eff = 3.25 GB/s
+
+nprocs = 9, dims = (3, 3)
+Time = 5.5167e+00 s, T_eff = 3.01 GB/s
+
+nprocs = 16, dims = (4, 4)
+Time = 7.2316e+00 s, T_eff = 2.30 GB/s

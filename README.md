@@ -22,7 +22,7 @@ Last years course: https://github.com/carstenbauer/JuliaHLRS23
 
 ## Handout
 
-Practical information about Hawk and the local laptops can be found in the [digital handout](https://github.com/carstenbauer/JuliaHLRS23/blob/main/orga/handout/handout.md) ([PDF version](https://github.com/carstenbauer/JuliaHLRS23/blob/main/orga/handout/handout.pdf)).
+Practical information about the HLRS training cluster and the local laptops can be found in the [digital handout](https://github.com/carstenbauer/JuliaHLRS24/blob/main/orga/handout/handout.md).
 
 ## Optional: Preparing for the workshop (if you bring your own device)
 

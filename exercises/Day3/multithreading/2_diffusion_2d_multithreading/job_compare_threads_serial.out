@@ -1,0 +1,36 @@
+
+
+#### Run 128
+-- single threaded
+Time = 2.2897e-02 s, T_eff = 4.57 GB/s 
+
+-- multithreaded (8 threads)
+Time = 6.9699e-03 s, T_eff = 15.01 GB/s 
+
+
+
+#### Run 256
+-- single threaded
+Time = 3.7115e-01 s, T_eff = 4.60 GB/s 
+
+-- multithreaded (8 threads)
+Time = 7.2850e-02 s, T_eff = 23.43 GB/s 
+
+
+
+#### Run 512
+-- single threaded
+Time = 5.8513e+00 s, T_eff = 4.69 GB/s 
+
+-- multithreaded (8 threads)
+Time = 1.0351e+00 s, T_eff = 26.51 GB/s 
+
+
+
+#### Run 1028
+-- single threaded
+Time = 9.4573e+01 s, T_eff = 4.72 GB/s 
+
+-- multithreaded (8 threads)
+Time = 1.6412e+01 s, T_eff = 27.21 GB/s 
+

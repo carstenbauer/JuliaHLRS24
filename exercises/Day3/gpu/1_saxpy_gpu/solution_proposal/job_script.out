@@ -1,0 +1,11 @@
+┌─────────────┬─────────┬─────────┬───────────┐
+│     Variant │ Runtime │   FLOPS │ Bandwidth │
+│             │      ms │ GFLOP/s │      GB/s │
+├─────────────┼─────────┼─────────┼───────────┤
+│   Broadcast │ 10.0289 │ 107.064 │   642.387 │
+│ CUDA kernel │ 8.13441 │   132.0 │     792.0 │
+│      CUBLAS │ 8.14396 │ 131.845 │   791.071 │
+└─────────────┴─────────┴─────────┴───────────┘
+Theoretical Memory Bandwidth of NVIDIA V100: 900 GB/s
+Job for ftrm@12117.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12117.cl7intern.service" and "journalctl -xe" for details.

@@ -1,0 +1,22 @@
+
+
+#### GPU run ns=1024
+Time = 1.9450e-01 s, T_eff = 42.27 GB/s 
+
+
+#### GPU run ns=2048
+Time = 1.9183e-01 s, T_eff = 171.41 GB/s 
+
+
+#### GPU run ns=4096
+Time = 1.9403e-01 s, T_eff = 677.89 GB/s 
+
+
+#### GPU run ns=8192
+Time = 7.4315e-01 s, T_eff = 707.98 GB/s 
+
+
+#### GPU run ns=16384
+Time = 2.9902e+00 s, T_eff = 703.82 GB/s 
+Job for ftrm@12115.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12115.cl7intern.service" and "journalctl -xe" for details.

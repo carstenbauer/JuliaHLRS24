@@ -24,7 +24,7 @@ Practical information about the HLRS training cluster and the local laptops can 
 
 ## Optional: Preparing for the workshop (if you bring your own device)
 
-**Important note:** We will provide preconfigured Laptops for the course and you don't need to bring your own device. If you do, please note that you won't be able to perform all exercises on your private machine, in particular those that are supposed to be done on the Hawk cluster. Also note that it won't be possible to access Hawk from your private device.
+**Important note:** We will provide preconfigured Laptops for the course and you don't need to bring your own device. If you do, please note that you might not be able to perform all exercises on your private machine, in particular those that are supposed to be done on the HLRS training cluster.
 
 ### Software
 

@@ -5,8 +5,6 @@ A four-day workshop that will take place in Stuttgart at the [High Performance C
 **Course page:** https://www.hlrs.de/training/2024/julia   
 **Instructor:** [Carsten Bauer](https://github.com/carstenbauer)
 
-Last years course: https://github.com/carstenbauer/JuliaHLRS23
-
 <!-- <div style="float: left">
  <a href="https://www.hlrs.de/"><img src="https://user-images.githubusercontent.com/187980/190168233-6f96774f-ed0a-44cc-b1b5-3ba0b75d39f8.svg" height=100px></a>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

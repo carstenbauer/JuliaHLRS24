@@ -10,16 +10,13 @@ size = MPI.Comm_size(comm)
 dst = mod(rank+1, size)
 src = mod(rank-1, size)
 sleep(0.1*rank)
-println("rank $rank of $size: destination=$dst, source=$src")
+println("rank $rank of $size (gpu=$(device())): destination=$dst, source=$src")
 
 # allocate memory on the GPU
 N = 4
-device!(rank)
 send_mesg = CuArray{Float64}(undef, N)
 recv_mesg = CuArray{Float64}(undef, N)
 fill!(send_mesg, Float64(rank))
-sleep(0.1*rank)
-@show rank, device(send_mesg), device(recv_mesg)
 
 # pass GPU buffers (CuArrays) into MPI functions
 MPI.Sendrecv!(send_mesg, dst, 0, recv_mesg, src, 0, comm)

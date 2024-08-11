@@ -10,18 +10,12 @@ end
 
 using Pkg
 println("\n\n\tActivating environment in $(pwd())...")
-pkg"activate ."
-println("\n\n\tInstantiating environment... (i.e. downloading + installing + precompiling packages)");
-flush(stdout);
-pkg"instantiate"
-pkg"precompile"
+Pkg.activate(@__DIR__)
+println("\n\n\tInstantiating environment... (i.e. downloading + precompiling packages)");
+Pkg.instantiate()
+Pkg.precompile()
 
-println("\n\n\tLoading PythonCall... (to trigger Conda related downloads / installations)");
-flush(stdout);
-using PythonCall
-
-println("\n\n\tLoading CUDA (to trigger lazy artifact downloads) ...");
-flush(stdout);
+println("\n\n\tDownloading CUDA artifacts", isoncluster() ? " and precompiling the runtime" : "", " ...");
 using CUDA
 if isoncluster()
     CUDA.precompile_runtime()
@@ -31,13 +25,10 @@ if isoncluster()
 end
 
 println("\n\n\tInstalling mpiexecjl ...");
-flush(stdout);
 using MPI
 MPI.install_mpiexecjl(; force=true)
 println("\n\n\t!!!!!!!!!!\n\tYou need to manually put mpiexecjl on PATH. Put the following into your .bashrc (or similar):");
-flush(stdout);
 println("\t\texport PATH=$(joinpath(DEPOT_PATH[1], "bin")):\$PATH");
-flush(stdout);
 println("\t!!!!!!!!!!")
 
 if length(ARGS) == 1 && ARGS[1] == "full" && (Sys.islinux() || Sys.isapple())
@@ -61,7 +52,7 @@ if length(ARGS) == 1 && ARGS[1] == "full" && (Sys.islinux() || Sys.isapple())
         println("\t\t `.zshrc` not found. Skipping!")
     end
 
-    if Sys.islinux()
+    if Sys.islinux() && !isoncluster()
         println("\n\n\t -- FULL MODE: Installing LIKWID ...!")
         likwid_dir = joinpath(@__DIR__, "orga", "likwid_local_install")
         cd(likwid_dir) do

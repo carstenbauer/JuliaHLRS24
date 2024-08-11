@@ -14,18 +14,6 @@ In these exercises, you will parallelize a simple Monte Carlo algorithm that can
 
 We revisit the 2D diffusion example from yesterday and parallelize it using MPI. In principle, this enables us to run the code at scale. We will switch from a strong scaling to a weak scaling approach.
 
-### `3_mpi_diffusion_1d` (cluster recommended)
-
-**Learnings:** overlapping MPI communication with computation
-
-You will implement (parts of) a MPI-parallel solver, this time for the 1D diffusion equation, for simplicity. Specifically, you will use non-blocking MPI communication to overlap communication and computation.
-
-### `4_mpi_bcast` (cluster recommended)
-
-**Learnings:** even basic things are hard to do efficiently
-
-In this exercise, we will implement our own basic variants of `MPI.Bcast!` (broadcasting) using basic MPI primitives. Specifically, you'll write a "naive" version and a more efficient binary-tree based variant.
-
 ### `5_diffusion_2d_mpi_gpu` (cluster only)
 
 **Learnings:** solving a physical (stencil) problem in parallel with MPI on multiple GPUs

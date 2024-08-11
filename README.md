@@ -3,9 +3,7 @@
 A four-day workshop that will take place in Stuttgart at the [High Performance Computing Center Stuttgart (HLRS)](https://www.hlrs.de/) in September 2024.
 
 **Course page:** https://www.hlrs.de/training/2024/julia   
-**Instructor:** [Carsten Bauer](https://github.com/carstenbauer)
-
-Last years course: https://github.com/carstenbauer/JuliaHLRS23
+**Trainer:** [Dr. Carsten Bauer](https://github.com/carstenbauer)
 
 <!-- <div style="float: left">
  <a href="https://www.hlrs.de/"><img src="https://user-images.githubusercontent.com/187980/190168233-6f96774f-ed0a-44cc-b1b5-3ba0b75d39f8.svg" height=100px></a>
@@ -26,7 +24,7 @@ Practical information about the HLRS training cluster and the local laptops can 
 
 ## Optional: Preparing for the workshop (if you bring your own device)
 
-**Important note:** We will provide preconfigured Laptops for the course and you don't need to bring your own device. If you do, please note that you won't be able to perform all exercises on your private machine, in particular those that are supposed to be done on the Hawk cluster. Also note that it won't be possible to access Hawk from your private device.
+**Important note:** We will provide preconfigured Laptops for the course and you don't need to bring your own device. If you do, please note that you might not be able to perform all exercises on your private machine, in particular those that are supposed to be done on the HLRS training cluster.
 
 ### Software
 

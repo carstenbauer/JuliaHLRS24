@@ -7,9 +7,9 @@
 ### The equation
 
 We will solve the 2D diffusion equation for a quantity $C$,
-$$
-\frac{∂C(x,y,t)}{∂t} = DΔC(x,y,t)~.
-$$
+
+$\frac{\partial C(x,y,t)}{\partial t} = D \Delta C(x,y,t).$
+
 Here, $D$ stands for the diffusion coefficient and $Δ$ is the Laplace operator and indicates second order spatial derivatives. The field $C(x,y,t)$ could, for example, be the distribution of heat on a surface (2D) at a particular point in time.
 
 Often times the diffusion equation is written in terms of *diffusive fluxes* as two coupled equations:

@@ -8,18 +8,17 @@
 
 We will solve the 2D diffusion equation for a quantity $C$,
 
-$\frac{\partial C(x,y,t)}{\partial t} = D \Delta C(x,y,t).$
+$\dfrac{\partial C(x,y,t)}{\partial t} = D ~ \Delta C(x,y,t)~.$
 
 Here, $D$ stands for the diffusion coefficient and $Δ$ is the Laplace operator and indicates second order spatial derivatives. The field $C(x,y,t)$ could, for example, be the distribution of heat on a surface (2D) at a particular point in time.
 
 Often times the diffusion equation is written in terms of *diffusive fluxes* as two coupled equations:
-$$
-\frac{∂C}{∂t} = -∇ ⋅ q~,
-$$
+
+$\dfrac{∂C}{∂t} = -∇ ⋅ q~,$
+
 where $q$ represents the diffusive flux:
-$$
-q = -D \; ∇C~.
-$$
+
+$q = -D ~ ∇C~.$
 
 ### Solving the equation
 We will solve this partial differential equation (PDE) using the **finite-difference method** and explicit forward **Euler integration** on a regular Cartesian grid (we'll consider the quadratic case most of the time).
@@ -27,13 +26,13 @@ We will solve this partial differential equation (PDE) using the **finite-differ
 <img src="imgs/stagg_2D.png" width=400px>
 
 As a reminder, finite-difference means using
-$$
-f'(x) = \frac{f(x+ds) - f(x)}{ds}
-$$
+
+$f'(x) = \dfrac{f(x+ds) - f(x)}{ds}$
+
 to approximate spatial derivatives. Euler integration means discretizing time and using
-$$
-f_{t+1} = f_{t} + dt⋅f'(t)
-$$
+
+$f_{t+1} = f_{t} + dt⋅f'(t)$
+
 to propagate $f$ in time.
 
 ### Parameters and initial condition
@@ -54,9 +53,9 @@ The first performance metric is wall time, or total runtime. We compute it using
 ### Effective memory throughput (`T_eff`)
 
 The second metric is the effective memory throughput $T_\mathrm{eff}$ (`T_eff` in the REPL). It defines as the **non-redundant** memory access per iteration divided by the time per iteration $t_\mathrm{it}$ (in sec.):
-$$
-T_\mathrm{eff} = \frac{A_\mathrm{eff}}{t_\mathrm{it}}~,
-$$
+
+$T_\mathrm{eff} = \dfrac{A_\mathrm{eff}}{t_\mathrm{it}}~,$
+
 where $A_\mathrm{eff} = n_\mathrm{IO} ~ n_s^2 ~ s_\mathrm{DAT} ~ 10^{-9}$ is the effective memory access (in GB).
 
 In our example, $n_\mathrm{IO} = 2$ as we only need to read old values of $C$ and write them back to solve the diffusion PDE. $s_\mathrm{DAT} = 8$ as we are running double precision floating point arithmetic.

@@ -19,22 +19,3 @@ Considering the 2D diffusion equation, you will implement a multithreaded, itera
 **Learnings:** NUMA domains, thread pinning, maximal memory bandwidth.
 
 You'll consider a multithreaded DAXPY kernel and will study how thread pinning and (implicit) memory pinning can influence the performance dramatically. Using the DAXPY kernel, you will estimate the maximal memory bandwidth (GB/s) of the system.
-
-
-
-
-
-
-
-
-
-
-
-
-## If you need even more
-
-### `more/juliaset` (multithreading)
-
-**Learnings:** load-balancing and that you don't get it with `@threads`.
-
-Here, we will compute an image of the [Julia set](https://en.wikipedia.org/wiki/Julia_set) using a sequential and and two multithreaded variants (`@threads` and `@spawn`).

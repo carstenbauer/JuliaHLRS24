@@ -17,8 +17,8 @@ function diffusion_step_kernel!(params, C2, C)
     #
     #       (For inspiration, see the cuda_kernel_blocks! example from the lecture.)
     #
-    # ix = ...
-    # iy = ...
+    ix = (blockIdx().x - 1) * blockDim().x + threadIdx().x
+    iy = (blockIdx().y - 1) * blockDim().y + threadIdx().y
 
     #
     # TODO: Convert the loop version of the diffusion kernel (diffusion_2d_serial.jl)
@@ -27,6 +27,10 @@ function diffusion_step_kernel!(params, C2, C)
     #
     #       (For inspiration, see the cuda_kernel_blocks! example from the lecture.)
     #
+    if ix <= size(C, 1)-2 && iy <= size(C, 2)-2
+        @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix + 1, iy + 1) - @qx(ix, iy + 1)) * inv(dx) +
+                                                         (@qy(ix + 1, iy + 1) - @qy(ix + 1, iy)) * inv(dy))
+    end
     return nothing
 end
 
@@ -44,6 +48,8 @@ function run_diffusion(; ns=128, nt=ns^2÷40, do_visualize=false)
     # TODO: Move C and C2 to the GPU by converting them to CuArrays.
     #       (Don't change init_arrays_mpi but simply do X = CuArray(X) for both of them.)
     #
+    C = CuArray(C)
+    C2 = CuArray(C2)
 
     maybe_visualize(params, C)
     t_tic    = 0.0

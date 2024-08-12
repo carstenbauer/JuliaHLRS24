@@ -40,26 +40,26 @@ function update_halo!(A, bufs, neighbors, comm)
     (neighbors.right != MPI.PROC_NULL) && copyto!(bufs.send_right, @view(A[:, end-1]))
 
     reqs = MPI.MultiRequest(4)
-    (neighbors.left  != MPI.PROC_NULL) && # TODO: receive from left neighbor into bufs.recv_left
-    (neighbors.right != MPI.PROC_NULL) && # TODO: receive from right neighbor into bufs.recv_right
+    (neighbors.left  != MPI.PROC_NULL) && MPI.Irecv!(bufs.recv_left,  comm, reqs[1]; source=neighbors.left)
+    (neighbors.right != MPI.PROC_NULL) && MPI.Irecv!(bufs.recv_right, comm, reqs[2]; source=neighbors.right)
 
-    (neighbors.left  != MPI.PROC_NULL) && # TODO: send bufs.send_left to left neighbor
-    (neighbors.right != MPI.PROC_NULL) && # TODO: send bufs.send_right to right neighbor
+    (neighbors.left  != MPI.PROC_NULL) && MPI.Isend(bufs.send_left,  comm, reqs[3]; dest=neighbors.left)
+    (neighbors.right != MPI.PROC_NULL) && MPI.Isend(bufs.send_right, comm, reqs[4]; dest=neighbors.right)
     MPI.Waitall(reqs) # blocking
 
     (neighbors.left  != MPI.PROC_NULL) && copyto!(@view(A[:, 1  ]), bufs.recv_left)
     (neighbors.right != MPI.PROC_NULL) && copyto!(@view(A[:, end]), bufs.recv_right)
 
     # y-dimension
-    (neighbors.top    != MPI.PROC_NULL) && copyto!(bufs.send_top,   @view(A[2    , :]))
+    (neighbors.top    != MPI.PROC_NULL) && copyto!(bufs.send_top,    @view(A[2    , :]))
     (neighbors.bottom != MPI.PROC_NULL) && copyto!(bufs.send_bottom, @view(A[end-1, :]))
 
     reqs = MPI.MultiRequest(4)
-    (neighbors.top    != MPI.PROC_NULL) && # TODO: receive from top neighbor into bufs.recv_top
-    (neighbors.bottom != MPI.PROC_NULL) && # TODO: receive from bottom neighbor into bufs.recv_bottom
+    (neighbors.top    != MPI.PROC_NULL) && MPI.Irecv!(bufs.recv_top,    comm, reqs[1]; source=neighbors.top)
+    (neighbors.bottom != MPI.PROC_NULL) && MPI.Irecv!(bufs.recv_bottom, comm, reqs[2]; source=neighbors.bottom)
 
-    (neighbors.top    != MPI.PROC_NULL) && # TODO: send bufs.send_top to top neighbor
-    (neighbors.bottom != MPI.PROC_NULL) && # TODO: send bufs.send_bottom to bottom neighbor
+    (neighbors.top    != MPI.PROC_NULL) && MPI.Isend(bufs.send_top,    comm, reqs[3]; dest=neighbors.top)
+    (neighbors.bottom != MPI.PROC_NULL) && MPI.Isend(bufs.send_bottom, comm, reqs[4]; dest=neighbors.bottom)
     MPI.Waitall(reqs) # blocking
 
     (neighbors.top    != MPI.PROC_NULL) && copyto!(@view(A[1  , :]), bufs.recv_top)

@@ -4,16 +4,16 @@ using Plots
 include(joinpath(@__DIR__, "shared.jl"))
 
 # convenience macros simply to avoid writing nested finite-difference expression
-macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(ds))) end
-macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(ds))) end
+macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(dx))) end
+macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(dy))) end
 
 function diffusion_step!(params, C2, C)
     (; ds, dt, D) = params
     # respect column major order
     for iy in 1:size(C, 2)-2
         for ix in 1:size(C, 1)-2
-            @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(ds) +
-                                                             (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(ds))
+            @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(dx) +
+                                                             (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(dy))
         end
     end
     return nothing

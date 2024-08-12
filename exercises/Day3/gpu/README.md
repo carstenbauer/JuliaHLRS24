@@ -17,15 +17,3 @@ We'll revisit the 2D diffusion example (see `diffusion_2d_multithreaded` above) 
 **Learnings:** CPU and GPU performance, a glimpse at hardware-agnostic coding
 
 In this exercise, we consider the problem of computing an image of the Julia Set. We will compare a CPU variant to a parallel GPU variant (custom CUDA kernel). Both implementations will call the same Julia function.
-
-
-
-
-
-
-## If you need even more
-
-### `more/heat_diffusion` (GPU)
-
-We'll consider the heat equation, a partial differential equation (PDE) describing the diffusion of heat over time, in two spatial dimensions. You will implement an explicit, iterative stencil solver for the equation and will learn how to move this solver from the CPU to the GPU by either using array abstractions or explicit CUDA kernels. Finally, you'll compare the performance of the different variants.
-

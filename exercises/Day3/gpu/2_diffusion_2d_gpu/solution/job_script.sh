@@ -18,15 +18,9 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-# some env vars
-export OMPI_MCA_mpi_cuda_support=1
-export OMPI_MCA_btl_openib_warn_no_device_params_found=0
-export JULIA_CUDA_MEMORY_POOL=none
+for i in 1024 2048 4096 8192 16384
+do
+    echo -e "\n\n#### GPU run ns=$i"
 
-# run MPI + CUDA code on 4 GPUs
-mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl
-# combine the results and visualize them
-julia --project visualize_mpi.jl
-
-# run with higher resolution
-# mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl 16384 nosave
+    julia --project diffusion_2d_gpu.jl $i
+done

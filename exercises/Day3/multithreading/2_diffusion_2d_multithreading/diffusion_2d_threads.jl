@@ -1,14 +1,14 @@
 # 2D linear diffusion solver - multithreading
 using Printf
 using Plots
-include(joinpath(@__DIR__, "../shared.jl"))
+include(joinpath(@__DIR__, "shared.jl"))
 
 # convenience macros simply to avoid writing nested finite-difference expression
-macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(ds))) end
-macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(ds))) end
+macro qx(ix, iy) esc(:(-D * (C[$ix+1, $iy] - C[$ix, $iy]) * inv(dx))) end
+macro qy(ix, iy) esc(:(-D * (C[$ix, $iy+1] - C[$ix, $iy]) * inv(dy))) end
 
 function diffusion_step!(params, C2, C)
-    (; ds, dt, D, static) = params
+    (; dx, dy, dt, D, static) = params
     if static
         #
         # TODO: Copy the double-loop from the diffusion_step! function

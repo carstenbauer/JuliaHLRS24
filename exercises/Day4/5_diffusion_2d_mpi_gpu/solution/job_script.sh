@@ -29,4 +29,4 @@ mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl
 julia --project visualize_mpi.jl
 
 # run with higher resolution
-# mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl 16384 nosave
+mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl 16384 nosave

@@ -1,6 +1,6 @@
 
 
-#### Run 256
+#### Run ns=256
 -- single threaded
 Time = 1.0093e-01 s, T_eff = 16.91 GB/s 
 
@@ -12,7 +12,7 @@ Time = 2.6299e-02 s, T_eff = 64.91 GB/s
 
 
 
-#### Run 512
+#### Run ns=512
 -- single threaded
 Time = 1.6781e+00 s, T_eff = 16.35 GB/s 
 
@@ -24,7 +24,7 @@ Time = 2.6497e-01 s, T_eff = 103.57 GB/s
 
 
 
-#### Run 1028
+#### Run ns=1028
 -- single threaded
 Time = 2.8097e+01 s, T_eff = 15.89 GB/s 
 

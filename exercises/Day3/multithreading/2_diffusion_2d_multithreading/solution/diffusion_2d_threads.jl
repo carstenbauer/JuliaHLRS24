@@ -15,10 +15,22 @@ function diffusion_step!(params, C2, C)
         #       in diffusion_2d_serial and multithread the outer one
         #       using static scheduling.
         #
+        Threads.@threads :static for iy in 1:size(C, 2)-2
+            for ix in 1:size(C, 1)-2
+                @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(ds) +
+                                                                 (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(ds))
+            end
+        end
     else
         #
         # TODO: Do the same as above but use the dynamic scheduler.
         #
+        Threads.@threads :dynamic for iy in 1:size(C, 2)-2
+            for ix in 1:size(C, 1)-2
+                @inbounds C2[ix+1, iy+1] = C[ix+1, iy+1] - dt * ((@qx(ix+1, iy+1) - @qx(ix, iy+1)) * inv(ds) +
+                                                                 (@qy(ix+1, iy+1) - @qy(ix+1, iy)) * inv(ds))
+            end
+        end
     end
     return nothing
 end

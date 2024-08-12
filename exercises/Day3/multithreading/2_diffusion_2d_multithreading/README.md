@@ -66,7 +66,7 @@ $T_\mathrm{eff}$ provides an idea on how far from the performance of memory copy
 
 ## Exercise Tasks
 
-### Task 1: Understand and run `diffusion_2d_serial.jl`
+### Task 1: Understanding and running the serial code
 
 #### The Code Structure
 
@@ -79,9 +79,19 @@ Let's have a look at the (fully functional) [`diffusion_2d_serial.jl`](diffusion
 
 Note that for `diffusion_step!`, we introduced a temporary second array `C2` in order to avoid race conditions, that is, to not read from and write to the same array.
 
+#### How to run the code?
+
+You can either run the code in an interactive Julia session (e.g. integrated REPL in VS Code) or run it from the command line.
+
+* Interactive:
+  * Use `include("diffusion_2d_serial.jl")`.
+
+* Command line:
+  * `julia --project diffusion_2d_serial.jl`
+
 #### Output
 
-If `do_visualize=true`, the code renders the evolution of the distribution of the diffusing quantity $C$ throughout the simulation at frequency intervals defined by `nout = nt / 5`. It dumps the heatmap plots into files called `visualization_i.png`.
+If `do_visualize=true` (default), the code renders the evolution of the distribution of the diffusing quantity $C$ throughout the simulation at frequency intervals defined by `nout = nt / 5`. It dumps the heatmap plots into files called `visualization_i.png`.
 If you are running the script from the VS Code integrated REPL, the plots will also show up in the plot pane.
 
 At the end of the simulation, the code prints the two performance metrics, wall time and `T_eff`.
@@ -89,7 +99,7 @@ At the end of the simulation, the code prints the two performance metrics, wall 
 * Do you get the 6 plots that show the diffusion of our Gaussian $C$ over time?
 * What values do you get for the performance metrics?
 
-### Task2: Serial → Multithreading
+### Task 2: Serial → Multithreading
 
 #### Implementation
 Let's speed up our 2D linear diffusion solver by multithreading the computational kernel in `diffusion_step!`.

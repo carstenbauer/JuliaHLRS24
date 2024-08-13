@@ -3,10 +3,13 @@ using MPI
 using CUDA
 
 MPI.Init()
-comm = MPI.COMM_WORLD
-rank = MPI.Comm_rank(comm)
-size = MPI.Comm_size(comm)
-device!(rank) # select GPU
+comm   = MPI.COMM_WORLD
+rank   = MPI.Comm_rank(comm)
+size   = MPI.Comm_size(comm)
+comm_l = MPI.Comm_split_type(comm, MPI.COMM_TYPE_SHARED, rank)
+rank_l = MPI.Comm_rank(comm_l)
+# choose correct GPU for this rank
+gpu_id = CUDA.device!(rank_l % ndevices())
 
 dst = mod(rank+1, size)
 src = mod(rank-1, size)

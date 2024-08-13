@@ -1,4 +1,4 @@
-isoncluster() = isdir("/zhome") || isdir("/shared")
+isoncluster() = isdir("/zhome") || isdir("/scratch")
 println("\n\n\tUsing ", isoncluster() ? "cluster" : "default", " preferences.")
 if isoncluster()
     cp(joinpath(@__DIR__, "LocalPreferences_Cluster.toml"),

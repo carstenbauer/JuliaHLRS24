@@ -1,0 +1,133 @@
+
+
+#### Run nranks=1
+[cmp035:4088698] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././.][]
+]0;Julia]0;Julianprocs = 1, dims = (1, 1)
+Time = 9.9833e-01 s, T_eff = 16.64 GB/s 
+
+
+#### Run nranks=4
+[cmp035:4088780] MCW rank 0 is not bound (or bound to all available processors)
+[cmp035:4088780] MCW rank 1 is not bound (or bound to all available processors)
+[cmp035:4088780] MCW rank 2 is not bound (or bound to all available processors)
+[cmp035:4088780] MCW rank 3 is not bound (or bound to all available processors)
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 4, dims = (2, 2)
+Time = 2.5274e+00 s, T_eff = 6.57 GB/s 
+
+
+#### Run nranks=8
+[cmp035:4088960] MCW rank 0 is not bound (or bound to all available processors)
+[cmp035:4088960] MCW rank 1 is not bound (or bound to all available processors)
+[cmp035:4088960] MCW rank 2 is not bound (or bound to all available processors)
+[cmp035:4088960] MCW rank 3 is not bound (or bound to all available processors)
+[cmp036:2892516] MCW rank 4 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]]: [B/B/B][.]
+[cmp036:2892516] MCW rank 5 bound to socket 1[core 3[hwt 0]]: [././.][B]
+[cmp036:2892516] MCW rank 6 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]]: [B/B/B][.]
+[cmp036:2892516] MCW rank 7 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]]: [B/B/B][.]
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 8, dims = (4, 2)
+Time = 2.9190e+00 s, T_eff = 5.69 GB/s 
+
+
+#### Run nranks=9
+--------------------------------------------------------------------------
+There are not enough slots available in the system to satisfy the 9
+slots that were requested by the application:
+
+  julia
+
+Either request fewer slots for your application, or make more slots
+available for use.
+
+A "slot" is the Open MPI term for an allocatable unit where we can
+launch a process.  The number of slots available are defined by the
+environment in which Open MPI processes are run:
+
+  1. Hostfile, via "slots=N" clauses (N defaults to number of
+     processor cores if not provided)
+  2. The --host command line parameter, via a ":N" suffix on the
+     hostname (N defaults to 1 if not provided)
+  3. Resource manager (e.g., SLURM, PBS/Torque, LSF, etc.)
+  4. If none of a hostfile, the --host command line parameter, or an
+     RM is present, Open MPI defaults to the number of processor cores
+
+In all the above cases, if you want Open MPI to default to the number
+of hardware threads instead of the number of processor cores, use the
+--use-hwthread-cpus option.
+
+Alternatively, you can use the --oversubscribe option to ignore the
+number of available slots when deciding the number of processes to
+launch.
+--------------------------------------------------------------------------
+[91m[1m┌ [22m[39m[91m[1mError: [22m[39mThe MPI process failed
+[91m[1m│ [22m[39m  proc = Process(`[4mmpiexec[24m [4m-n[24m [4m9[24m [4m--report-bindings[24m [4mjulia[24m [4mdiffusion_2d_mpi.jl[24m [4m1024[24m [4mnosave[24m`, ProcessExited(1))
+[91m[1m└ [22m[39m[90m@ Main none:7[39m
+
+
+#### Run nranks=12
+--------------------------------------------------------------------------
+There are not enough slots available in the system to satisfy the 12
+slots that were requested by the application:
+
+  julia
+
+Either request fewer slots for your application, or make more slots
+available for use.
+
+A "slot" is the Open MPI term for an allocatable unit where we can
+launch a process.  The number of slots available are defined by the
+environment in which Open MPI processes are run:
+
+  1. Hostfile, via "slots=N" clauses (N defaults to number of
+     processor cores if not provided)
+  2. The --host command line parameter, via a ":N" suffix on the
+     hostname (N defaults to 1 if not provided)
+  3. Resource manager (e.g., SLURM, PBS/Torque, LSF, etc.)
+  4. If none of a hostfile, the --host command line parameter, or an
+     RM is present, Open MPI defaults to the number of processor cores
+
+In all the above cases, if you want Open MPI to default to the number
+of hardware threads instead of the number of processor cores, use the
+--use-hwthread-cpus option.
+
+Alternatively, you can use the --oversubscribe option to ignore the
+number of available slots when deciding the number of processes to
+launch.
+--------------------------------------------------------------------------
+[91m[1m┌ [22m[39m[91m[1mError: [22m[39mThe MPI process failed
+[91m[1m│ [22m[39m  proc = Process(`[4mmpiexec[24m [4m-n[24m [4m12[24m [4m--report-bindings[24m [4mjulia[24m [4mdiffusion_2d_mpi.jl[24m [4m1024[24m [4mnosave[24m`, ProcessExited(1))
+[91m[1m└ [22m[39m[90m@ Main none:7[39m
+
+
+#### Run nranks=16
+--------------------------------------------------------------------------
+There are not enough slots available in the system to satisfy the 16
+slots that were requested by the application:
+
+  julia
+
+Either request fewer slots for your application, or make more slots
+available for use.
+
+A "slot" is the Open MPI term for an allocatable unit where we can
+launch a process.  The number of slots available are defined by the
+environment in which Open MPI processes are run:
+
+  1. Hostfile, via "slots=N" clauses (N defaults to number of
+     processor cores if not provided)
+  2. The --host command line parameter, via a ":N" suffix on the
+     hostname (N defaults to 1 if not provided)
+  3. Resource manager (e.g., SLURM, PBS/Torque, LSF, etc.)
+  4. If none of a hostfile, the --host command line parameter, or an
+     RM is present, Open MPI defaults to the number of processor cores
+
+In all the above cases, if you want Open MPI to default to the number
+of hardware threads instead of the number of processor cores, use the
+--use-hwthread-cpus option.
+
+Alternatively, you can use the --oversubscribe option to ignore the
+number of available slots when deciding the number of processes to
+launch.
+--------------------------------------------------------------------------
+[91m[1m┌ [22m[39m[91m[1mError: [22m[39mThe MPI process failed
+[91m[1m│ [22m[39m  proc = Process(`[4mmpiexec[24m [4m-n[24m [4m16[24m [4m--report-bindings[24m [4mjulia[24m [4mdiffusion_2d_mpi.jl[24m [4m1024[24m [4mnosave[24m`, ProcessExited(1))
+[91m[1m└ [22m[39m[90m@ Main none:7[39m

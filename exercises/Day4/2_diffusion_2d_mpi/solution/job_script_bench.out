@@ -1,0 +1,30 @@
+
+
+#### Run nranks=1
+]0;Julia]0;Julianprocs = 1, dims = (1, 1)
+Time = 8.7700e-01 s, T_eff = 18.94 GB/s 
+
+
+#### Run nranks=4
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 4, dims = (2, 2)
+Time = 9.3871e-01 s, T_eff = 17.69 GB/s 
+
+
+#### Run nranks=8
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 8, dims = (4, 2)
+Time = 1.5343e+00 s, T_eff = 10.83 GB/s 
+
+
+#### Run nranks=9
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 9, dims = (9, 1)
+Time = 1.7818e+00 s, T_eff = 9.32 GB/s 
+
+
+#### Run nranks=12
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 12, dims = (4, 3)
+Time = 1.8799e+00 s, T_eff = 8.84 GB/s 
+
+
+#### Run nranks=16
+]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julia]0;Julianprocs = 16, dims = (4, 4)
+Time = 2.3105e+00 s, T_eff = 7.19 GB/s 

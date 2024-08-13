@@ -62,8 +62,9 @@ With this MPI setup in mind, let's move on to the exercise tasks and coding.
 
 1. Inspect the file `diffusion_2d_mpi.jl` and try to understand the general structure.
 2. Before changing anything, run the file using 4 MPI ranks (`mpiexecjl -n 4 julia --project diffusion_2d_mpi.jl`) and then visualize the (wrong) results (`julia --project visualize_mpi.jl`).
-3. Implement the halo exchange in the function `update_halo!` by using non-blocking communication (`Irecv!`, `Isend`). See the `TODO` block in the file for more information.
-4. Run the code again, visualize the result again, and check that the code is correct (you should see very clearly if it's not correct 😉).
+    - You can also use `job_script.sh` for this. Either run it locally (`./job_script.sh`) or submit it as a job on the cluster (`qsub job_script.sh`).
+4. Implement the halo exchange in the function `update_halo!` by using non-blocking communication (`Irecv!`, `Isend`). See the `TODO` block in the file for more information.
+5. Run the code again, visualize the result again, and check that the code is correct (you should see very clearly if it's not correct 😉).
 
 ## Task 2: Benchmark
 

@@ -22,7 +22,7 @@
 # 2. Run the code with the following command:
 #
 #                    mpiexecjl --project -n 8 julia mc_mpi.jl
-#  
+#
 #    How does the performance of the MPI code compare to the Distributed.jl variant?
 
 function compute_pi(N)
@@ -42,7 +42,7 @@ function main()
     comm = MPI.COMM_WORLD
     rank = MPI.Comm_rank(comm)
     nranks = MPI.Comm_size(comm)
-    
+
     niter = 100                     # number of benchmark iterations
     N = 10_000_000                  # total number of dart throws
     N_local = ceil(Int, N / nranks) # local number of dart throws
@@ -51,20 +51,20 @@ function main()
     for i in 1:niter # perform the benchmark niter times
         MPI.Barrier(comm)
         times[i] = MPI.Wtime() # timing start
-        
+
         #
         # TODO: compute local pi estimate
         #
-        local_pi = ...
-        
+        # local_pi = ...
+
         #
         # TODO: Use MPI.Reduce to sum up all rank-local π estimates.
         #       The reduction result will be available on rank 0.
         #       On rank 0, divide the result by nranks (to compute the average π estimate).
         #       The final result should be stored in the variable: pi_approx
         #
-        pi_approx = ...
-        
+        # pi_approx = ...
+
         MPI.Barrier(comm)
         times[i] = MPI.Wtime() - times[i] # timing stop
 

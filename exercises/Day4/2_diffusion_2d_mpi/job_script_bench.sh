@@ -1,7 +1,6 @@
 #!/bin/bash
 #PBS -N diff2dmpi_bench
 #PBS -l select=1:node_type=skl:ncpus=40:mem=80gb:mpiprocs=16
-##PBS -l select=1:node_type=clx-ai:ncpus=36:mem=72gb:mpiprocs=16
 #PBS -l walltime=00:10:00
 #PBS -j oe
 #PBS -o job_script_bench.out

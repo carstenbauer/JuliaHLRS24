@@ -18,7 +18,7 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-# hide some OpenMPI warnings/info messages on the cluster
+# OpenMPI settings
 export OMPI_MCA_mpi_cuda_support=0
 export OMPI_MCA_btl_openib_warn_no_device_params_found=0
 

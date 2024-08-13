@@ -6,4 +6,5 @@ Please have in mind: By loading this module, the OpenMP library shipped with
 the Nvidia HPC SDK will be used. This might have implications for
 OpenMP-parallel code on the CPU as well, cf.
 https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
-/shared/training/ws/sca50297-jlhpc/shared/.julia/bin/mpiexecjl: line 76: 57074 Killed                  "${JULIA_CMD}" "${PROJECT_ARG}" --color=yes --startup-file=no -q --compile=min -O0 -e "${SCRIPT}" -- "${@}"
+nprocs = 4, dims = (2, 2)
+Time = 2.2050e-02 s, T_eff = 11.77 GB/s 

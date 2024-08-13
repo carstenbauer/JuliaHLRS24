@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N diff2dmpi
-#PBS -l select=1:node_type=skl:ncpus=4:mpiprocs=4
+#PBS -l select=1:node_type=skl:ncpus=4:mem=4gb
 #PBS -l walltime=00:10:00
 #PBS -j oe
 #PBS -o job_script.out
@@ -18,7 +18,7 @@ if [[ -n "${PBS_O_WORKDIR}" ]]; then
 fi
 cd $WORKDIR
 
-# hide some OpenMPI warnings/info messages on the cluster
+# OpenMPI settings
 export OMPI_MCA_mpi_cuda_support=0
 export OMPI_MCA_btl_openib_warn_no_device_params_found=0
 

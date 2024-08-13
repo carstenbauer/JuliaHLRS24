@@ -104,7 +104,7 @@ function run_diffusion(; ns=128, nt=1000, do_save=false)
     (rank == 0) && println("nprocs = $(nprocs), dims = $dims")
 
     params = init_params_gpu_mpi(; dims, coords, ns, nt, do_save)
-    C, C2  = init_arrays_gpu_mpi(params)
+    C, C2  = init_arrays_mpi(params)
 
     #
     # TODO: Move C and C2 to the GPU by making them CuArrays.

@@ -26,6 +26,13 @@ end
 
 Your task is to translate this into a custom CUDA kernel.
 
+Note that the CUDA kernel will be run using multiple blocks. In `shared.jl` we set
+
+```julia
+nthreads = 32, 8              # number of threads per block
+nblocks  = cld.(ns, nthreads) # number of blocks
+```
+
 1. Open the file `diffusion_2d_gpu.jl`, find the `diffusion_step_kernel!` function and implement it (see the `TODO` block).
 2. Next, focus on the `run_diffusion` function and modify it to ensure that the matrices `C` and `C2` (representing our diffusive quantitiy, e.g. heat) live in GPU memory rather than host memory (see `TODO` block).
 3. Finally, make sure that the code is working by running it and inspecting the final visualization.

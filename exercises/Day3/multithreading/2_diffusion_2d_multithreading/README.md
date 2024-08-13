@@ -29,7 +29,7 @@ As a reminder, finite-difference means using
 
 $f'(x) = \dfrac{f(x+ds) - f(x)}{ds}$
 
-to approximate spatial derivatives. Euler integration means discretizing time and using
+to approximate (first order) spatial derivatives. Euler integration means discretizing time and using
 
 $f_{t+1} = f_{t} + dt⋅f'(t)$
 

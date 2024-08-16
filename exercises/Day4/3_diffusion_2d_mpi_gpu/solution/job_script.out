@@ -1,24 +1,19 @@
-Please have in mind: By loading this module, the OpenMP library shipped with
-the Nvidia HPC SDK will be used. This might have implications for
-OpenMP-parallel code on the CPU as well, cf.
-https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
-Please have in mind: By loading this module, the OpenMP library shipped with
-the Nvidia HPC SDK will be used. This might have implications for
-OpenMP-parallel code on the CPU as well, cf.
-https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
-CuDevice(1), out of: 8
-CuDevice(2), out of: 8
-CuDevice(0), out of: 8
-CuDevice(3), out of: 8
-nprocs = 4, dims = (2, 2)
-Time = 1.8610e-01 s, T_eff = 1.39 GB/s 
+]0;Julia]0;Julia]0;Julia]0;JuliaCuDevice(0), out of: 1
+nprocs = 2, dims = (2, 1)
+CuDevice(0), out of: 1
+Time = 1.5864e-01 s, T_eff = 1.64 GB/s 
 
-CuDevice(3), out of: 8
-CuDevice(0), out of: 8
-CuDevice(2), out of: 8
-CuDevice(1), out of: 8
-nprocs = 4, dims = (2, 2)
-Time = 6.0119e+00 s, T_eff = 707.27 GB/s 
-
-Job for ftrm@12245.cl7intern.service failed because the control process exited with error code.
-See "systemctl status ftrm@12245.cl7intern.service" and "journalctl -xe" for details.
+]0;Julia]0;Julia]0;Julia]0;JuliaCuDevice(0), out of: 1
+CuDevice(0), out of: 1
+nprocs = 2, dims = (2, 1)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 1 with PID 2470729 on node gpu004 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+[91m[1m┌ [22m[39m[91m[1mError: [22m[39mThe MPI process failed
+[91m[1m│ [22m[39m  proc = Process(`[4mmpiexec[24m [4m-n[24m [4m2[24m [4mjulia[24m [4mdiffusion_2d_mpi_gpu.jl[24m [4m16384[24m [4mnosave[24m`, ProcessExited(137))
+[91m[1m└ [22m[39m[90m@ Main none:7[39m
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4366881.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

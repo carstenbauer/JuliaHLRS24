@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --output=job_script.out
+#SBATCH --output=job_script_A100.out
 #SBATCH --time=00:05:00
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=1
 #SBATCH --gpus-per-task=1
 #SBATCH --mem-per-cpu=4gb
-#SBATCH --partition=gpu-v100
+#SBATCH --partition=gpu-a100
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job -> load the module(s)

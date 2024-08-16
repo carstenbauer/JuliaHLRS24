@@ -16,8 +16,8 @@ fi
 export OMPI_MCA_mpi_cuda_support=0
 
 # run MPI code
-for i in 1 4 8 9 12 16
+for i in 1 2 4 8 9 12 16
 do
     echo -e "\n\n#### Run nranks=$i"
-    mpiexecjl -n $i --map-by numa --bind-to core julia --project diffusion_2d_mpi.jl 1024 nosave
+    mpiexecjl -n $i --map-by numa --bind-to core --report-bindings julia --project diffusion_2d_mpi.jl 1024 nosave
 done

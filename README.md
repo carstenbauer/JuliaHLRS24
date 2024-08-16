@@ -16,11 +16,7 @@ A four-day workshop that will take place in Stuttgart at the [High Performance C
 
 ## Tentative schedule
 
-<a href="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.pdf"><img src="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.svg" width=720px></a>
-
-## Handout
-
-Practical information about the HLRS training cluster and the local laptops can be found in the [digital handout](https://github.com/carstenbauer/JuliaHLRS24/blob/main/orga/handout/handout.md).
+<a href="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.pdf"><img src="https://github.com/carstenbauer/JuliaHLRS24/raw/main/orga/timetable.png" width=720px></a>
 
 ## Optional: Preparing for the workshop (if you bring your own device)
 

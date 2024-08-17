@@ -3,11 +3,11 @@ AXPY with @threads :dynamic
 
 Memory Bandwidth (GB/s)
 ┌────────────────┬─────────┬───────────┐
-│ # Threads = 20 │ :serial │ :parallel │
+│ # Threads = 12 │ :serial │ :parallel │
 ├────────────────┼─────────┼───────────┤
-│         :cores │   97.96 │     98.04 │
-│       :sockets │    67.5 │    126.34 │
-│          :numa │    67.4 │    117.75 │
+│         :cores │   47.96 │     46.31 │
+│       :sockets │   55.15 │     73.73 │
+│          :numa │   37.53 │    108.35 │
 └────────────────┴─────────┴───────────┘
 
 
@@ -15,11 +15,11 @@ AXPY with @threads :static
 
 Memory Bandwidth (GB/s)
 ┌────────────────┬─────────┬───────────┐
-│ # Threads = 20 │ :serial │ :parallel │
+│ # Threads = 12 │ :serial │ :parallel │
 ├────────────────┼─────────┼───────────┤
-│         :cores │   97.93 │     98.04 │
-│       :sockets │   95.79 │    184.46 │
-│          :numa │   81.08 │    185.38 │
+│         :cores │   47.52 │     47.82 │
+│       :sockets │   37.45 │     93.38 │
+│          :numa │   36.91 │    151.76 │
 └────────────────┴─────────┴───────────┘
 
- 96.252046 seconds (584.15 k allocations: 225.039 GiB, 2.64% gc time, 3.31% compilation time)
+  8.424251 seconds (635.28 k allocations: 7.542 GiB, 19.51% gc time, 20.77% compilation time)

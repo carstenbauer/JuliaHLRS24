@@ -1,20 +1,19 @@
 #!/bin/bash
-#PBS -N daxpy_cpu
-#PBS -l select=1:node_type=skl:mem=150gb:ncpus=40
-#PBS -l walltime=00:10:00
-#PBS -j oe
-#PBS -o job_script.out
-#PBS -q smp
+#SBATCH --job-name=daxpy_cpu
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=5gb
+#SBATCH --partition=compute
+#SBATCH --output=job_script.out
+#SBATCH --exclusive
+#SBATCH --account=research-eemcs-diam
 
-WORKDIR=$(pwd)
-if [[ -n "${PBS_O_WORKDIR}" ]]; then
-    # we're running as a cluster job
-    # change to the directory that the job was submitted from ...
-    WORKDIR=$PBS_O_WORKDIR
-    # ... and load the module(s)
-    ml julia
+if [[ -n "${SLURM_JOBID}" ]]; then
+    # we're running as a cluster job → load modules
+    # ml julia
+    ml nvhpc
 fi
-cd $WORKDIR
 
 # run program
-julia --project -t 20 daxpy_cpu.jl
+julia --project -t 12 daxpy_cpu.jl

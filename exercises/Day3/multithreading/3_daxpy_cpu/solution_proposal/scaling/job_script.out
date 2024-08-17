@@ -3,28 +3,37 @@ Memory Bandwidth (GB/s)
 ┌───────────────┬─────────┬───────────┐
 │ # Threads = 1 │ :serial │ :parallel │
 ├───────────────┼─────────┼───────────┤
-│        :cores │   17.75 │     17.72 │
-│      :sockets │   17.75 │     17.79 │
-│         :numa │   17.75 │     17.76 │
+│        :cores │   20.69 │     20.72 │
+│      :sockets │   20.72 │     20.72 │
+│         :numa │   20.71 │     20.64 │
 └───────────────┴─────────┴───────────┘
 
 Memory Bandwidth (GB/s)
 ┌────────────────┬─────────┬───────────┐
-│ # Threads = 20 │ :serial │ :parallel │
+│ # Threads = 12 │ :serial │ :parallel │
 ├────────────────┼─────────┼───────────┤
-│         :cores │   97.99 │     98.03 │
-│       :sockets │   80.19 │    183.34 │
-│          :numa │   80.37 │    183.12 │
+│         :cores │   46.71 │     46.08 │
+│       :sockets │   36.53 │     92.75 │
+│          :numa │    36.6 │    150.21 │
 └────────────────┴─────────┴───────────┘
 
 Memory Bandwidth (GB/s)
 ┌────────────────┬─────────┬───────────┐
-│ # Threads = 40 │ :serial │ :parallel │
+│ # Threads = 24 │ :serial │ :parallel │
 ├────────────────┼─────────┼───────────┤
-│         :cores │   78.24 │    195.47 │
-│       :sockets │   81.99 │     194.9 │
-│          :numa │   77.84 │    194.47 │
+│         :cores │   45.96 │     89.94 │
+│       :sockets │   41.64 │     92.84 │
+│          :numa │   36.66 │    174.38 │
 └────────────────┴─────────┴───────────┘
-199.131422 seconds (738.05 k allocations: 337.552 GiB, 2.43% gc time, 2.44% compilation time)
-169.532604 seconds (3.64 M allocations: 506.507 GiB, 3.86% gc time, 1.19% compilation time: 24% of which was recompilation)
-368.678444 seconds (4.39 M allocations: 844.059 GiB, 3.09% gc time, 1.87% compilation time: 7% of which was recompilation)
+
+Memory Bandwidth (GB/s)
+┌────────────────┬─────────┬───────────┐
+│ # Threads = 48 │ :serial │ :parallel │
+├────────────────┼─────────┼───────────┤
+│         :cores │   36.11 │    174.99 │
+│       :sockets │    35.1 │    162.54 │
+│          :numa │   35.82 │    173.21 │
+└────────────────┴─────────┴───────────┘
+ 38.888081 seconds (942.67 k allocations: 30.069 GiB, 12.36% gc time, 10.27% compilation time)
+ 26.527952 seconds (3.69 M allocations: 34.011 GiB, 19.62% gc time, 7.08% compilation time: 25% of which was recompilation)
+ 65.428503 seconds (4.64 M allocations: 64.080 GiB, 15.30% gc time, 8.99% compilation time: 8% of which was recompilation)

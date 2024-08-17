@@ -1,24 +1,22 @@
 #!/bin/bash
-#PBS -N diff2dthreads_bench
-#PBS -l select=1:node_type=skl:mem=150gb:ncpus=40
-#PBS -l walltime=00:10:00
-#PBS -j oe
-#PBS -o job_bench_threads.out
-#PBS -q smp
+#SBATCH --job-name=diff2dthreads_bench
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=48
+#SBATCH --mem=5gb
+#SBATCH --partition=compute
+#SBATCH --output=job_bench_threads.out
+#SBATCH --exclusive
+#SBATCH --account=research-eemcs-diam
 
-WORKDIR=$(pwd)
-if [[ -n "${PBS_O_WORKDIR}" ]]; then
-    # we're running as a cluster job
-    # change to the directory that the job was submitted from ...
-    WORKDIR=$PBS_O_WORKDIR
-    # ... and load the module(s)
-    ml julia
+if [[ -n "${SLURM_JOBID}" ]]; then
+    # we're running as a cluster job → load modules
+    ml nvhpc
 fi
-cd $WORKDIR
 
-for i in 512 2048 6144 16384
+for i in 6144 16384
 do
     echo -e "\n\n#### Run $i"
 
-    julia --project --threads 20 bench_threads.jl $i # benchmark multithreaded variants
+    julia --project --threads 12 bench_threads.jl $i # benchmark multithreaded variants
 done

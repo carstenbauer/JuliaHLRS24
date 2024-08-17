@@ -1,11 +1,14 @@
 #!/bin/bash
-#SBATCH --time=00:10:00
+#SBATCH --job-name=diff2dmpi_bench
+#SBATCH --time=00:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=16
-#SBATCH --cpus-per-task=3
+#SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=1gb
 #SBATCH --partition=compute
 #SBATCH --output=job_script_bench.out
+#SBATCH --exclusive
+#SBATCH --account=research-eemcs-diam
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job → load modules

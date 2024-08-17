@@ -1,22 +1,18 @@
 #!/bin/bash
-#PBS -N saxpy_gpu
-#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
-#PBS -l walltime=00:10:00
-#PBS -q smp
-#PBS -j oe
-#PBS -o job_script.out
+#SBATCH --job-name=saxpy_gpu
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --gpus-per-task=1
+#SBATCH --mem=2gb
+#SBATCH --partition=gpu-v100
+#SBATCH --output=job_script.out
+#SBATCH --account=research-eemcs-diam
 
-WORKDIR=$(pwd)
-if [[ -n "${PBS_O_WORKDIR}" ]]; then
-    # we're running as a cluster job
-    # change to the directory that the job was submitted from ...
-    WORKDIR=$PBS_O_WORKDIR
-    # ... and load the module(s)
-    ml julia
-    ml nvidia/nvhpc
-    ml compiler/nvidia
+if [[ -n "${SLURM_JOBID}" ]]; then
+    # we're running as a cluster job → load modules
+    ml nvhpc
 fi
-cd $WORKDIR
 
 # run program
 julia --project saxpy_gpu_solution.jl

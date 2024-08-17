@@ -1,22 +1,19 @@
 #!/bin/bash
-#PBS -N diff2dthreads
-#PBS -l select=1:node_type=skl:mem=5gb:ncpus=10
-#PBS -l walltime=00:10:00
-#PBS -j oe
-#PBS -o job_script.out
-#PBS -q smp
+#SBATCH --job-name=diff2dthreads
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=5gb
+#SBATCH --partition=compute
+#SBATCH --output=job_script.out
+#SBATCH --account=research-eemcs-diam
 
-WORKDIR=$(pwd)
-if [[ -n "${PBS_O_WORKDIR}" ]]; then
-    # we're running as a cluster job
-    # change to the directory that the job was submitted from ...
-    WORKDIR=$PBS_O_WORKDIR
-    # ... and load the module(s)
-    ml julia
+if [[ -n "${SLURM_JOBID}" ]]; then
+    # we're running as a cluster job → load modules
+    ml nvhpc
 fi
-cd $WORKDIR
 
-for i in 256 512 1028
+for i in 256 512 1228
 do
     echo -e "\n\n#### Run ns=$i"
 
@@ -24,11 +21,11 @@ do
     julia --project --threads 1 diffusion_2d_threads.jl $i
     echo -e ""
 
-    echo -e "-- multithreaded (10 threads), dynamic scheduling"
-    julia --project --threads 10 diffusion_2d_threads.jl $i
+    echo -e "-- multithreaded (12 threads), dynamic scheduling"
+    julia --project --threads 12 diffusion_2d_threads.jl $i
     echo -e ""
 
-    echo -e "-- multithreaded (10 threads), static scheduling"
-    julia --project --threads 10 diffusion_2d_threads.jl $i static
+    echo -e "-- multithreaded (12 threads), static scheduling"
+    julia --project --threads 12 diffusion_2d_threads.jl $i static
     echo -e ""
 done

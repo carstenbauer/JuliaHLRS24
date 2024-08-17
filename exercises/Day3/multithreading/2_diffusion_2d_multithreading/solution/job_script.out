@@ -2,35 +2,35 @@
 
 #### Run ns=256
 -- single threaded
-Time = 1.0093e-01 s, T_eff = 16.91 GB/s 
+Time = 1.0694e-01 s, T_eff = 15.96 GB/s 
 
--- multithreaded (10 threads), dynamic scheduling
-Time = 3.0337e-02 s, T_eff = 56.27 GB/s 
+-- multithreaded (12 threads), dynamic scheduling
+Time = 7.1674e-02 s, T_eff = 23.82 GB/s 
 
--- multithreaded (10 threads), static scheduling
-Time = 2.6299e-02 s, T_eff = 64.91 GB/s 
+-- multithreaded (12 threads), static scheduling
+Time = 5.9910e-02 s, T_eff = 28.49 GB/s 
 
 
 
 #### Run ns=512
 -- single threaded
-Time = 1.6781e+00 s, T_eff = 16.35 GB/s 
+Time = 1.7185e+00 s, T_eff = 15.97 GB/s 
 
--- multithreaded (10 threads), dynamic scheduling
-Time = 2.9838e-01 s, T_eff = 91.98 GB/s 
+-- multithreaded (12 threads), dynamic scheduling
+Time = 8.4106e-01 s, T_eff = 32.63 GB/s 
 
--- multithreaded (10 threads), static scheduling
-Time = 2.6497e-01 s, T_eff = 103.57 GB/s 
+-- multithreaded (12 threads), static scheduling
+Time = 7.9194e-01 s, T_eff = 34.65 GB/s 
 
 
 
-#### Run ns=1028
+#### Run ns=1228
 -- single threaded
-Time = 2.8097e+01 s, T_eff = 15.89 GB/s 
+Time = 9.1175e+01 s, T_eff = 9.97 GB/s 
 
--- multithreaded (10 threads), dynamic scheduling
-Time = 4.2298e+00 s, T_eff = 105.57 GB/s 
+-- multithreaded (12 threads), dynamic scheduling
+Time = 2.9738e+01 s, T_eff = 30.58 GB/s 
 
--- multithreaded (10 threads), static scheduling
-Time = 4.2592e+00 s, T_eff = 104.84 GB/s 
+-- multithreaded (12 threads), static scheduling
+Time = 2.7932e+01 s, T_eff = 32.56 GB/s 
 

@@ -1,11 +1,13 @@
 #!/bin/bash
+#SBATCH --job-name=diff2dmpigpu
 #SBATCH --output=job_script.out
 #SBATCH --time=00:05:00
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=1
 #SBATCH --gpus-per-task=1
-#SBATCH --mem-per-cpu=4gb
+#SBATCH --mem-per-cpu=10gb
 #SBATCH --partition=gpu-v100
+#SBATCH --account=research-eemcs-diam
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job -> load the module(s)
@@ -18,7 +20,7 @@ export CUDA_HOME=$NVHPC_ROOT/cuda/12.1
 export JULIA_CUDA_MEMORY_POOL=none
 
 # run MPI + CUDA code on 4 GPUs
-mpiexecjl -n 4 julia --project diffusion_2d_mpi_gpu.jl
+mpiexecjl -n 4 --report-bindings julia --project diffusion_2d_mpi_gpu.jl
 # combine the results and visualize them
 julia --project visualize_mpi.jl
 

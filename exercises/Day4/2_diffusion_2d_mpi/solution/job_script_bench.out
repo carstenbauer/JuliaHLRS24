@@ -1,0 +1,38 @@
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+
+
+#### Run nranks=1
+nprocs = 1, dims = (1, 1)
+Time = 9.5371e-01 s, T_eff = 17.42 GB/s 
+
+
+#### Run nranks=2
+nprocs = 2, dims = (2, 1)
+Time = 9.7023e-01 s, T_eff = 17.12 GB/s 
+
+
+#### Run nranks=4
+nprocs = 4, dims = (2, 2)
+Time = 1.2162e+00 s, T_eff = 13.66 GB/s 
+
+
+#### Run nranks=8
+nprocs = 8, dims = (4, 2)
+Time = 1.6453e+00 s, T_eff = 10.10 GB/s 
+
+
+#### Run nranks=9
+nprocs = 9, dims = (9, 1)
+Time = 1.7635e+00 s, T_eff = 9.42 GB/s 
+
+
+#### Run nranks=12
+nprocs = 12, dims = (4, 3)
+Time = 2.0117e+00 s, T_eff = 8.26 GB/s 

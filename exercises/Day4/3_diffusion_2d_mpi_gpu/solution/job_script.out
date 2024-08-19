@@ -1,0 +1,24 @@
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+Please have in mind: By loading this module, the OpenMP library shipped with
+the Nvidia HPC SDK will be used. This might have implications for
+OpenMP-parallel code on the CPU as well, cf.
+https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+CuDevice(1), out of: 8
+CuDevice(2), out of: 8
+CuDevice(0), out of: 8
+CuDevice(3), out of: 8
+nprocs = 4, dims = (2, 2)
+Time = 1.8610e-01 s, T_eff = 1.39 GB/s 
+
+CuDevice(3), out of: 8
+CuDevice(0), out of: 8
+CuDevice(2), out of: 8
+CuDevice(1), out of: 8
+nprocs = 4, dims = (2, 2)
+Time = 6.0119e+00 s, T_eff = 707.27 GB/s 
+
+Job for ftrm@12245.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12245.cl7intern.service" and "journalctl -xe" for details.

@@ -1,6 +1,17 @@
 # Exercise: Cthulhu
 
-In the following exercise, you will make yourself familiar with the basics of [Cthulhu.jl](https://github.com/JuliaDebug/Cthulhu.jl), a tool to interactively introspect Julia code.
+## Cthulhu.jl
+
+[Cthulhu.jl](https://github.com/JuliaDebug/Cthulhu.jl) is an interactive, more powerful generalization of the introspection macros. Among other things it has the following features:
+
+* Allows easy switching between code representations (syntax, typed, native, ...).
+* **Recursive application possible**(!) (i.e. introspecting a function that is called within a function within function ...).
+
+<img src="./imgs/cthulhu.png" width=1000>
+
+## Exercise
+
+In this exercise, you will make yourself familiar with the basics of [Cthulhu.jl](https://github.com/JuliaDebug/Cthulhu.jl), a tool to interactively introspect Julia code.
 
 **Note:**
 * **Cthulhu only works in the REPL and not in Jupyter! Hence, you must do this exercise in a Terminal!**

@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N juliaset_gpu
-#PBS -l select=1:node_type=clx-ai:ncpus=36:mem=100gb
+#PBS -l select=1:node_type=clx-ai:ncpus=4:mem=10gb
 #PBS -l walltime=00:10:00
 #PBS -q smp
 #PBS -j oe

@@ -37,6 +37,7 @@ function diffusion_step!(params, C2, C)
 end
 
 function run_diffusion(; ns=128, nt=ns^2÷40, do_visualize=false)
+    choose_correct_gpu()
     params   = init_params_gpu(; ns, nt, do_visualize)
     C, C2    = init_arrays(params)
 

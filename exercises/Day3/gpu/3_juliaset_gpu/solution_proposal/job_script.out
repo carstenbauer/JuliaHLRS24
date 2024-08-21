@@ -6,9 +6,11 @@ Please have in mind: By loading this module, the OpenMP library shipped with
 the Nvidia HPC SDK will be used. This might have implications for
 OpenMP-parallel code on the CPU as well, cf.
 https://kb.hlrs.de/staff/index.php/NVIDIA#OpenMP. 
+Prologue: PBS assigned coreids = [1, 2, 3, 4].
+Prologue: Will use GPU 1 (9f6c344e-aafb-a6f0-93fd-6146659179de).
 CPU and GPU results match: true
-CPU (sequential):	806.38ms
-GPU (incl. transfer):	9.83ms
-GPU (w/o transfer):	4110.11μs
-Job for ftrm@12143.cl7intern.service failed because the control process exited with error code.
-See "systemctl status ftrm@12143.cl7intern.service" and "journalctl -xe" for details.
+CPU (sequential):	804.45ms
+GPU (incl. transfer):	6.55ms
+GPU (w/o transfer):	292.36μs
+Job for ftrm@12564.cl7intern.service failed because the control process exited with error code.
+See "systemctl status ftrm@12564.cl7intern.service" and "journalctl -xe" for details.

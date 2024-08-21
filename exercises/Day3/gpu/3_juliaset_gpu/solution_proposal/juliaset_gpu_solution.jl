@@ -1,6 +1,8 @@
 using CUDA
 # using Plots
 using BenchmarkTools
+using ThreadPinning
+using SysInfo
 
 @assert CUDA.functional()
 const MAX_THREADS_PER_BLOCK = CUDA.attribute(device(), CUDA.DEVICE_ATTRIBUTE_MAX_THREADS_PER_BLOCK)
@@ -63,19 +65,32 @@ function compute_juliaset_gpu(N)
     return img_cpu
 end
 
-
-
+function choose_correct_gpu()
+    # PBS doesn't manage GPUs on the training cluster :(
+    # Here, we try to deduce the correct GPU from the assigned CPU cores.
+    haskey(ENV, "PBS_O_WORKDIR") || return # not within a PBS job
+    mask = getaffinity()
+    cpuids = ThreadPinning.Utility.affinitymask2cpuids(mask)
+    coreids = SysInfo.Internals.cpuid_to_core.(cpuids)
+    gpuids = floor.(Int, (coreids .- 1) ./ 4)
+    gpuid = minimum(gpuids)
+    CUDA.device!(gpuid)
+    println("Prologue: PBS assigned coreids = $(coreids).")
+    println("Prologue: Will use GPU $(gpuid+1) ($(uuid(device()))).")
+    return
+end
 
 function main()
+    choose_correct_gpu()
     N = 2048
     img1 = compute_juliaset_gpu(N)
     # heatmap(img1)
     img2 = compute_juliaset_cpu(N)
     # heatmap(img2)
     println("CPU and GPU results match: ", img1 ≈ img2)
-    t_cpu = @belapsed compute_juliaset_cpu($N) samples = 10 evals = 3 # ~ 158 ms
-    t_gpu = @belapsed compute_juliaset_gpu($N) samples = 10 evals = 3 # ~ 2 ms (includes gpu -> host transfer)
-    t_transfer = @belapsed Array(img_gpu) setup = (img_gpu = CUDA.zeros(Int32, $N, $N)) samples = 10 evals = 3 # ~ 1.6 ms
+    t_cpu = @belapsed compute_juliaset_cpu($N) samples = 10 evals = 3
+    t_gpu = @belapsed compute_juliaset_gpu($N) samples = 10 evals = 3
+    t_transfer = @belapsed Array(img_gpu) setup = (img_gpu = CUDA.zeros(Int32, $N, $N)) samples = 10 evals = 3
     println("CPU (sequential):\t", round(t_cpu * 1e3; digits=2), "ms")
     println("GPU (incl. transfer):\t", round(t_gpu * 1e3; digits=2), "ms")
     println("GPU (w/o transfer):\t", round((t_gpu - t_transfer) * 1e6; digits=2), "μs")

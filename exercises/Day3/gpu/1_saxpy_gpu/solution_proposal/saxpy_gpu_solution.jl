@@ -1,6 +1,8 @@
 using CUDA
 using BenchmarkTools
 using PrettyTables
+using ThreadPinning
+using SysInfo
 
 "Computes the SAXPY via broadcasting"
 function saxpy_broadcast_gpu!(a, x, y)
@@ -34,9 +36,25 @@ saxpy_flops(t; len) = 2.0 * len * 1e-9 / t # GFLOP/s
 "Computes the GB/s from the vector length `len`, the vector element type `dtype`, and the measured runtime `t`."
 saxpy_bandwidth(t; dtype, len) = 3.0 * sizeof(dtype) * len * 1e-9 / t # GB/s
 
+function choose_correct_gpu()
+    # PBS doesn't manage GPUs on the training cluster :(
+    # Here, we try to deduce the correct GPU from the assigned CPU cores.
+    haskey(ENV, "PBS_O_WORKDIR") || return # not within a PBS job
+    mask = getaffinity()
+    cpuids = ThreadPinning.Utility.affinitymask2cpuids(mask)
+    coreids = SysInfo.Internals.cpuid_to_core.(cpuids)
+    gpuids = floor.(Int, (coreids .- 1) ./ 4)
+    gpuid = minimum(gpuids)
+    CUDA.device!(gpuid)
+    println("Prologue: PBS assigned coreids = $(coreids).")
+    println("Prologue: Will use GPU $(gpuid+1) ($(uuid(device()))).")
+    return
+end
+
 function main()
+    choose_correct_gpu()
     dtype = Float32
-    nthreads = 1024
+    nthreads = 1024 # CUDA.DEVICE_ATTRIBUTE_MAX_THREADS_PER_BLOCK
     nblocks = 2^19
     len = nthreads * nblocks # vector length
     a = convert(dtype, 3.1415)

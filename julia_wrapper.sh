@@ -2,12 +2,12 @@
 
 # Making module / ml available
 # ------------------------------------------------------------
-export MODULEPATH=/opt/system/modulefiles:/opt/training/modulefiles:/opt/hlrs/non-spack/modulefiles:/opt/hlrs/spack/current/modulefiles
-source /opt/system/lmod/lmod/init/profile
+export MODULEPATH=/etc/scl/modulefiles:/etc/scl/modulefiles:/apps/noarch/modulefiles:/apps/generic/modulefiles
+source /usr/share/lmod/lmod/init/profile
 # ------------------------------------------------------------
 
 # Load julia
-module load julia
+source /projects/julia/shared_bashrc.sh
 module load nvhpc # for MPI/CUDA
 
 # Pass on all arguments to julia

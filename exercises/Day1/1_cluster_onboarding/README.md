@@ -38,6 +38,8 @@ Great, we have Julia. But we don't have any packages in the "global" environment
 
 Hopefully, it works now. 😉
 
+**Note: Don't forget to pass `--project` to `julia` for the rest of the workshop (on the cluster and on the laptop)! Otherwise, no packages won't be available.**
+
 ## Task 2: Submitting a job
 
 1. Within the workshop materials directory, do `cd exercises/Day1/1_cluster_onboarding`

@@ -18,7 +18,8 @@ But you don't have Julia (try `julia`). 🙁
    
     ```
     module load julia
-    module load nvhpc # for MPI/CUDA (not needed today)
+    module load nvidia/nvhpc    # for MPI/CUDA (not needed today)
+    module load compiler/nvidia # for MPI/CUDA (not needed today)
     ```
 5. Try `julia` again.
 
@@ -45,7 +46,7 @@ Hopefully, it works now. 😉
 1. Within the workshop materials directory, do `cd exercises/Day1/1_cluster_onboarding`
 2. Inspect the file `job_script.sh` (e.g. `cat job_script.sh`) to get a feeling for how it looks.
 3. Submit the job to the scheduler with `qsub job_script.sh`.
-4. Check with `qstat -rnw` that the job is either queued up (status `Q`) or that it is running (status `R`).
+4. Check with `qstat -nw` that the job is either queued up (status `Q`) or that it is running (status `R`).
 5. Once the job has run, see the outputfile `job_script.out` for the result.
 
 ## Task 3: VSCode → Cluster → Julia (extension)
@@ -73,7 +74,7 @@ As there is no internet on the cluster, we have to install the extension from fi
 * Enter the following path and press Enter:
 
 ```
-/shared/training/ws/sca50297-jlhpc/shared/julialang.language-julia-1.104.1.vsix
+/shared/akad-julia/julialang.language-julia-1.121.1.vsix
 ```
 
 After a while, the Julia extension should be installed.
@@ -85,7 +86,7 @@ However, it can't find `julia` yet, because the extension doesn't know anything 
 The Julia wrapper script is rather simple: It loads the necessary modules (i.e. `module julia`) and then acts like `julia`. The path to the script is:
 
 ```
-/shared/training/ws/sca50297-jlhpc/shared/julia_wrapper.sh
+/shared/akad-julia/julia_wrapper.sh
 ```
 
 1. To set the relevant setting, press `CTRL + ,` (comma) to open the Settings.

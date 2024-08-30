@@ -7,8 +7,9 @@ source /opt/system/lmod/lmod/init/profile
 # ------------------------------------------------------------
 
 # Load julia
-module load julia
-module load nvhpc # for MPI/CUDA
+ml julia
+ml nvidia/nvhpc # for MPI/CUDA
+ml compiler/nvidia
 
 # Pass on all arguments to julia
 exec julia "${@}"

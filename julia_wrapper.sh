@@ -7,7 +7,8 @@ source /usr/share/lmod/lmod/init/profile
 # ------------------------------------------------------------
 
 # Load julia
-source /projects/julia/shared_bashrc.sh
+module use /projects/julia/modulefiles
+module load julia
 module load nvhpc # for MPI/CUDA
 
 # Pass on all arguments to julia

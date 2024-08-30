@@ -10,7 +10,9 @@
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job → load modules
-    ml nvhpc
+    module use /projects/julia/modulefiles
+    module load julia
+    module load nvhpc
 fi
 
 # OpenMPI settings

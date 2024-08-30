@@ -9,11 +9,11 @@
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job -> load the module(s)
-    ml nvhpc
+    module use /projects/julia/modulefiles
+    module load julia
+    module load nvhpc
 fi
 
-# some env vars
-export CUDA_HOME=$NVHPC_ROOT/cuda/12.1
 export JULIA_CUDA_MEMORY_POOL=none
 
 for i in 1024 2048 4096 8192 16384

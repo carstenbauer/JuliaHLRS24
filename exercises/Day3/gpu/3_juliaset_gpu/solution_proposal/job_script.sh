@@ -11,8 +11,12 @@
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job → load modules
-    ml nvhpc
+    module use /projects/julia/modulefiles
+    module load julia
+    module load nvhpc
 fi
+
+export JULIA_CUDA_MEMORY_POOL=none
 
 # run program
 julia --project juliaset_gpu_solution.jl

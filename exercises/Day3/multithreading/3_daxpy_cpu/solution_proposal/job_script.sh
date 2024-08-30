@@ -11,8 +11,8 @@
 
 if [[ -n "${SLURM_JOBID}" ]]; then
     # we're running as a cluster job → load modules
-    # ml julia
-    ml nvhpc
+    module use /projects/julia/modulefiles
+    module load julia
 fi
 
 # run program

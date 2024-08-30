@@ -10,13 +10,14 @@
 #SBATCH --account=research-eemcs-diam
 
 if [[ -n "${SLURM_JOBID}" ]]; then
-    # we're running as a cluster job -> load the module(s)
-    ml nvhpc
+    # we're running as a cluster job → load modules
+    module use /projects/julia/modulefiles
+    module load julia
+    module load nvhpc
 fi
 
 # some env vars
 export OMPI_MCA_mpi_cuda_support=1
-export CUDA_HOME=$NVHPC_ROOT/cuda/12.1
 export JULIA_CUDA_MEMORY_POOL=none
 
 # run MPI + CUDA code on 4 GPUs

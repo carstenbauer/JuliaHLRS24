@@ -21,7 +21,7 @@
 #
 # 2. Run the code with the following command:
 #
-#                    mpiexecjl --project -n 8 julia mc_mpi.jl
+#                    mpiexecjl --project -n 4 julia mc_mpi.jl
 #  
 #    How does the performance of the MPI code compare to the Distributed.jl variant?
 

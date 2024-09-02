@@ -41,22 +41,14 @@ Hopefully, it works now. 😉
 
 **Note: Don't forget to pass `--project` to `julia` for the rest of the workshop (on the cluster and on the laptop)! Otherwise, no packages won't be available.**
 
-## Task 2: Submitting a job
-
-1. Within the workshop materials directory, do `cd exercises/Day1/1_cluster_onboarding`
-2. Inspect the file `job_script.sh` (e.g. `cat job_script.sh`) to get a feeling for how it looks.
-3. Submit the job to the scheduler with `qsub job_script.sh`.
-4. Check with `qstat -nw` that the job is either queued up (status `Q`) or that it is running (status `R`).
-5. Once the job has run, see the outputfile `job_script.out` for the result.
-
-## Task 3: VSCode → Cluster → Julia (extension)
+## Task 2: VSCode → Cluster → Julia (extension)
 
 ### Connecting via SSH
 1. Open Visual Studio Code
 2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
 3. When asked for it, input `accountname@training.hlrs.de` for the hostname.
 4. When asked for it, enter your account password.
-5. Wait for (potentially) quite some time... (since there is no internet on the cluster, the VS Code server backend will be downloaded locally and then copied to the cluster...)
+5. Wait a bit...
 
 After some time, you should have VS Code running on the cluster. 🎉
 

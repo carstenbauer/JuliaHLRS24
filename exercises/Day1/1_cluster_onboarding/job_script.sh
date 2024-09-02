@@ -6,8 +6,11 @@
 #PBS -o job_script.out
 #PBS -q smp
 
-# module load nvhpc # for MPI/CUDA, not necessary today but will be on Day 3/4
 module load julia
+
+# for MPI/CUDA, not necessary today but will be on Day 3/4:
+# module load nvidia/nvhpc
+# module load compiler/nvidia
 
 cd $PBS_O_WORKDIR
 

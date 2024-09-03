@@ -16,6 +16,7 @@ Pkg.instantiate()
 Pkg.precompile()
 
 Pkg.build("IJulia") # to be safe
+Pkg.precompile()
 
 println("\n\n\tDownloading CUDA artifacts", isoncluster() ? " and precompiling the runtime" : "", " ...");
 using CUDA

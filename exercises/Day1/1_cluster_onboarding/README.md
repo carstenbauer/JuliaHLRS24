@@ -78,14 +78,19 @@ To set the relevant setting:
 
 ### Testing the Julia VS Code integration
 
-To start the "integrated Julia REPL", press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and then execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
+1. Start the "integrated Julia REPL", press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and then execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
 
-Note that while the REPL in the bottoms visually looks identical to if you simply had executed `julia --project` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code (e.g. plots should show up in the VS Code plot pane etc.).
+Note that while the REPL at the bottom visually looks identical to if you simply had executed `julia --project` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code (e.g. plots should show up in the VS Code plot pane etc.).
 
-5. Open the file `inlineeval.jl` (find it under `exercises/Day1/1_cluster_onboarding` in the file tree in the left pane).
-6. In the editor, click on the line `3+3` and press `SHIFT+Enter`. The result should show up next to the line. (This is called "inline evaluation.")
-7. Repeat this step with the next line.
-8. Finally, run all the lines under "plot something". If everything works as expected, the plot should show up in the VS Code plot pane.
+2. Run the following Julia commands in the "integrated Julia REPL" at the bottom:
+
+    ```julia
+    using Plots
+    x = -π:0.1:π
+    plot(x, sin.(x))
+    ```
+    
+If everything is working, a sine plot should show up in the VS Code plot pane.
 
 Here are a few more commands that could be useful for controlling the integrated Julia REPL:
 

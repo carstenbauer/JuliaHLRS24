@@ -2,67 +2,56 @@
 
 The purpose of this exercise is to get you going on the cluster. If you already have (a lot of) cluster experience, the exercise probably won't take you long. I still recommend you to do it, especially the Julia related parts, to make sure that you're prepared for what is to come later in the course.
 
-## Task 1: Terminal → Cluster → Julia
+## Connecting via SSH (with VSCode)
+1. Open Visual Studio Code
+2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
+3. When asked for it, input `accountname@training.hlrs.de` for the hostname and press `Enter`.
+5. Wait a bit...
 
-### Connecting via SSH
-1. Open a terminal.
-2. Type `ssh accountsname@training.hlrs.de` and press `Enter`.
-3. When asked for it, enter your account password.
+After some time, you should have VS Code running on the cluster. 🎉
 
-You're on the cluster. 🎉
+## Opening the workshop folder
 
-But you don't have Julia (try `julia`). 🙁
+1. Open a terminal in VSCode by either pressing `CTRL + ~` or running the command `Terminal: Create New Terminal`.
 
-### Loading Julia
-4. Load the modules for this course:
+2. In the terminal navigate to your copy of the workshop materials: `cd $SCRATCH/JuliaHLRS24`.
+ 
+4. Use `code -r .` to tell the VS Code session to switch into this active folder (such that you see the workshop directory in the file tree in the left pane).
+
+## Using Julia
+
+To make Julia available on the cluster, we need to load the necessary system modules.
+
+1. Load the modules for this course:
    
     ```
     module load julia
     module load nvidia/nvhpc    # for MPI/CUDA (not needed today)
     module load compiler/nvidia # for MPI/CUDA (not needed today)
     ```
-5. Try `julia` again.
+    
+2. Inside of the workshop directory (`$SCRATCH/JuliaHLRS24`), start Julia with `julia --project`.
+    - The `--project` flag is important and tells Julia to use the local Julia environment of the workshop. You can use it anywhere inside of `JuliaHLRS24`, including its subdirectories.
 
-Great, we have Julia. But we don't have any packages in the "global" environment (try, e.g., `using SysInfo`).
+3. The following Julia commands should work now:
 
-### Starting Julia in the course environment
-6. If it is still open, close Julia (`exit()` or `CTRL + D`).
+    ```julia
+    using SysInfo
+    sysinfo()
+    ```
 
-7. Use `cd $SCRATCH/JuliaHLRS24` to navigate to (your copy of) the workshop materials.
+**Note: Don't forget to pass `--project` to `julia` when you start Julia from the command line. Otherwise, no packages won't be available.**
 
-8. Anywhere within this directory (including subdirectories) you can use `julia --project` to start Julia in the workshop environment. Do it and try running this Julia code:
+## Using Julia through the Julia VSCode extension
 
-   ```julia
-   using SysInfo
-   sysinfo()
-   ```
-
-Hopefully, it works now. 😉
-
-**Note: Don't forget to pass `--project` to `julia` for the rest of the workshop (on the cluster and on the laptop)! Otherwise, no packages won't be available.**
-
-## Task 2: VSCode → Cluster → Julia (extension)
-
-### Connecting via SSH
-1. Open Visual Studio Code
-2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
-3. When asked for it, input `accountname@training.hlrs.de` for the hostname.
-4. When asked for it, enter your account password.
-5. Wait a bit...
-
-After some time, you should have VS Code running on the cluster. 🎉
-
-6. Using the terminal in the bottom (if it's not there, press `CTRL + ~`), run `code -r $SCRATCH/JuliaHLRS24` to tell the VS Code session to switch into this folder (such that you see the file tree in the left pane etc.).
-
-In it's current form, this setup gives you a terminal (in the bottom) plus a nice editor on the cluster. Using the steps from Task 1 above, you could now use the terminal to start Julia. 
-
-However, you won't get any Julia integration into VS Code this way (e.g. no in-line evaluation, plots won't show up in the plot pane, you can't open jupyter notebooks using Julia, etc.). For the latter to work, you need to setup the Julia extension once.
+While manually starting Julia via `julia --project` in the terminal is fine, you won't get any special integration with VS Code this way (e.g. plots won't show up in the VS Code plot pane, no in-line evaluation, you can't open jupyter notebooks using Julia, etc.). For all of these things to work, you need to setup the Julia extension (once).
 
 ### Installing the Julia extension
 
 As there is no internet on the cluster, we have to install the extension from file.
 
-1. Open the extension tab in the sider bar on the left (`CTRL + SHIFT + X`), click on the three dots at the top and select `Install from VSIX...`.
+1. Open the extension tab in the sider bar on the left (`CTRL + SHIFT + X`).
+2. Click on the three dots in the top-right corner of the side bar and select `Install from VSIX...`.
 * Enter the following path and press Enter:
 
 ```
@@ -71,33 +60,30 @@ As there is no internet on the cluster, we have to install the extension from fi
 
 After a while, the Julia extension should be installed.
 
-However, it can't find `julia` yet, because the extension doesn't know anything about `module`s on the cluster.
-
 ### Pointing the extension to `julia_wrapper.sh`
 
-The Julia wrapper script is rather simple: It loads the necessary modules (i.e. `module julia`) and then acts like `julia`. The path to the script is:
+So far, the extension doesn't know anything about `module`s on the cluster and can't find `julia`. We need to point it to the wrapper script, which is located at
 
 ```
 /shared/akad-julia/julia_wrapper.sh
 ```
 
-1. To set the relevant setting, press `CTRL + ,` (comma) to open the Settings.
+To set the relevant setting:
+
+1. Press `CTRL + ,` (comma) to open the Settings.
 2. Select the tab (at the top) that says "training.hlrs.de".
 3. Search for "julia executable" and copy-paste the path above into the text field of the setting.
 
-**Note:** You should only have to do this **once**, as it should remember the setting for the rest of the course.
+**Note:** You should only have to do this **once**. VS Code should remember the setting for the rest of the course.
 
-### Testing Julia VS Code integration
+### Testing the Julia VS Code integration
 
-Let's test that things are working.
+Press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and the execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
 
-4. In a regular terminal at the bottom (`CTRL + ~`), do `code -r $SCRATCH/JuliaHLRS24`. This tells VS Code to switch to the workshop directory.
-5. Now, press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and the execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
-
-Note that while the REPL in the bottoms visually looks identical to if you simply had executed `julia` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code. Among other things, it gives you in-line evaluation and plots should now show up in the VS Code Plots pane. Let's try this.
+Note that while the REPL in the bottoms visually looks identical to if you simply had executed `julia --project` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code (e.g. plots should show up in the VS Code plot pane etc.).
 
 5. Open the file `inlineeval.jl` (find it under `exercises/Day1/1_cluster_onboarding` in the file tree in the left pane).
-6. In the editor, click on the line `3+3` and press `SHIFT+Enter`. The result should show up next to the line.
+6. In the editor, click on the line `3+3` and press `SHIFT+Enter`. The result should show up next to the line. (This is called "inline evaluation.")
 7. Repeat this step with the next line.
 8. Finally, run all the lines under "plot something". If everything works as expected, the plot should show up in the VS Code plot pane.
 

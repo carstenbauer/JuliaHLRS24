@@ -78,7 +78,7 @@ To set the relevant setting:
 
 ### Testing the Julia VS Code integration
 
-Press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and then execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
+To start the "integrated Julia REPL", press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and then execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
 
 Note that while the REPL in the bottoms visually looks identical to if you simply had executed `julia --project` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code (e.g. plots should show up in the VS Code plot pane etc.).
 

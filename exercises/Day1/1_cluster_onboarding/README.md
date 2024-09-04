@@ -42,7 +42,7 @@ To make Julia available on the cluster, we need to load the necessary system mod
 
 **Note: Don't forget to pass `--project` to `julia` when you start Julia from the command line. Otherwise, no packages won't be available.**
 
-## Using Julia through the Julia VSCode extension
+## Using Julia through the Julia VSCode extension ("Bonus")
 
 While manually starting Julia via `julia --project` in the terminal is fine, you won't get any special integration with VS Code this way (e.g. plots won't show up in the VS Code plot pane, no in-line evaluation, you can't open jupyter notebooks using Julia, etc.). For all of these things to work, you need to setup the Julia extension (once).
 

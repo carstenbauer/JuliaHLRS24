@@ -3,7 +3,7 @@
 The purpose of this exercise is to get you going with Julia on the cluster.
 
 ## Connecting via SSH (with VSCode)
-1. Open Visual Studio Code (`code`)
+1. Open Visual Studio Code (e.g. from a terminal by executing `code`)
 2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
 3. When asked for it, input `accountname@training.hlrs.de` for the hostname and press `Enter`.
 5. Wait a bit...

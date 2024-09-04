@@ -14,9 +14,9 @@ After some time, you should have VS Code running on the cluster. 🎉
 
 1. Open a terminal in VSCode by either pressing `CTRL + ~` or running the command `Terminal: Create New Terminal`.
 
-2. In the terminal navigate to your copy of the workshop materials: `cd $SCRATCH/JuliaHLRS24`.
+2. In the terminal in the bottom, navigate to your copy of the workshop materials: `cd $SCRATCH/JuliaHLRS24`.
  
-4. Use `code -r .` to tell the VS Code session to switch into this active folder (such that you see the workshop directory in the file tree in the left pane).
+4. Execute `code -r .` to tell the VS Code session to switch into the active folder (such that you see the workshop directory in the file tree in the left pane).
 
 ## Using Julia
 

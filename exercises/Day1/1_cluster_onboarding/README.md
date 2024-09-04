@@ -1,6 +1,6 @@
 # Exercise: Cluster Onboarding
 
-The purpose of this exercise is to get you going on the cluster. If you already have (a lot of) cluster experience, the exercise probably won't take you long. I still recommend you to do it, especially the Julia related parts, to make sure that you're prepared for what is to come later in the course.
+The purpose of this exercise is to get you going with Julia on the cluster.
 
 ## Connecting via SSH (with VSCode)
 1. Open Visual Studio Code

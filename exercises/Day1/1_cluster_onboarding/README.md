@@ -40,7 +40,7 @@ To make Julia available on the cluster, we need to load the necessary system mod
     sysinfo()
     ```
 
-**Note: Don't forget to pass `--project` to `julia` when you start Julia from the command line. Otherwise, no packages won't be available.**
+**Note: Never forget to pass `--project` to `julia` when you start Julia from the command line from inside the workshop directory. Otherwise, no packages won't be available.**
 
 ## Using Julia through the Julia VSCode extension ("Bonus")
 

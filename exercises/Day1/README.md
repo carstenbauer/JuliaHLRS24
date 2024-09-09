@@ -1,8 +1,8 @@
 # Exercises - Day 1
 
-### `1_cluster_onboarding`
+### `1_onboarding`
 
-This exercise is intended to show you how to get started using Julia on the cluster. A particular focus lies on how to use Julia + VS Code remotely.
+This exercise is intended to show you how to get started using Julia on the laptop and the cluster.
 
 ### `2_babylonian_sqrt`
 

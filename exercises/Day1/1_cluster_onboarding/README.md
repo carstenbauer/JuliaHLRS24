@@ -30,7 +30,7 @@ To make Julia available on the cluster, we need to load the necessary system mod
     module load compiler/nvidia # for MPI/CUDA (not needed today)
     ```
     
-2. Inside of the workshop directory (`$SCRATCH/JuliaHLRS24`), start Julia with `julia --project`.
+2. Inside of the workshop directory `$SCRATCH/JuliaHLRS24` (you should still be there), start Julia with `julia --project`.
     - The `--project` flag is important and tells Julia to use the local Julia environment of the workshop. You can use it anywhere inside of `JuliaHLRS24`, including its subdirectories.
 
 3. The following Julia commands should work now:
@@ -39,6 +39,8 @@ To make Julia available on the cluster, we need to load the necessary system mod
     using SysInfo
     sysinfo()
     ```
+    
+4. Close the Julia REPL with `CTRL + D` or calling `exit()`.
 
 **Note: Never forget to pass `--project` to `julia` when you start Julia from the command line from inside the workshop directory. Otherwise, no packages won't be available.**
 
@@ -73,12 +75,15 @@ To set the relevant setting:
 1. Press `CTRL + ,` (comma) to open the Settings.
 2. Select the tab (at the top) that says "training.hlrs.de".
 3. Search for "julia executable" and copy-paste the path above into the text field of the setting.
+4. Close the settings tab.
 
 **Note:** You should only have to do this **once**. VS Code should remember the setting for the rest of the course.
 
 ### Testing the Julia VS Code integration
 
 1. Start the "integrated Julia REPL", press `ALT+J` followed by `ALT+O`. Alternatively, you can press `CTRL+SHIFT+P` and then execute the command `Julia: Start REPL`. Either way, a Julia REPL should pop up in the bottom (might take some time the first time).
+
+The very first time you do this, the VSCodeServer package will precompile (for about a minute). Wait until you see the `julia>` input prompt.
 
 Note that while the REPL at the bottom visually looks identical to if you simply had executed `julia --project` in a terminal, this "integrated Julia REPL" is special in the sense that it is connected to the Julia extension and VS Code (e.g. plots should show up in the VS Code plot pane etc.).
 
@@ -97,3 +102,5 @@ Here are a few more commands that could be useful for controlling the integrated
 * Open integrated Julia REPL: `Alt-J Alt-O`
 * Kill integrated Julia REPL: `Alt-J Alt-K`
 * Restart integrated Julia REPL: `Alt-J Alt-R`
+
+You're done 🎉. Feel free to play around further and then close VS Code.

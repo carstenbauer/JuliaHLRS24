@@ -2,6 +2,8 @@
 
 The purpose of this exercise is to get you going with Julia on the cluster.
 
+We will be using VS Code below but you can also use a regular terminal if you feel comfortable with it and prefer the minimalistic experience.
+
 ## Connecting via SSH (with VSCode)
 1. Open Visual Studio Code (e.g. from a terminal by executing `code`)
 2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
@@ -44,7 +46,7 @@ To make Julia available on the cluster, we need to load the necessary system mod
 
 **Note: Never forget to pass `--project` to `julia` when you start Julia from the command line from inside the workshop directory. Otherwise, no packages won't be available.**
 
-## Using Julia through the Julia VSCode extension ("Bonus")
+## BONUS: Using the Julia VSCode extension on the cluster
 
 While manually starting Julia via `julia --project` in the terminal is fine, you won't get any special integration with VS Code this way (e.g. plots won't show up in the VS Code plot pane, no in-line evaluation, you can't open jupyter notebooks using Julia, etc.). For all of these things to work, you need to setup the Julia extension (once).
 

@@ -7,7 +7,7 @@ We will be using VS Code below but you can also use a regular terminal if you fe
 ## Connecting via SSH (with VSCode)
 1. Open Visual Studio Code (e.g. from a terminal by executing `code`)
 2. Press `CTRL + SHIFT + P` (opens the popup menu) and type and select `Remote-SSH: Connect to Host...`
-3. When asked for it, input `accountname@training.hlrs.de` for the hostname and press `Enter`.
+3. When asked for it, input `training.hlrs.de` for the hostname and press `Enter`.
 5. Wait a bit...
 
 After some time, you should have VS Code running on the cluster. 🎉

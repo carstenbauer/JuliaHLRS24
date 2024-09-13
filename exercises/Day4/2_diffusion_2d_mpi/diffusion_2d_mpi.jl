@@ -51,27 +51,27 @@ function update_halo!(A, bufs, neighbors, comm)
     (neighbors.right != MPI.PROC_NULL) && copyto!(@view(A[:, end]), bufs.recv_right)
 
     # y-dimension
-    (neighbors.top    != MPI.PROC_NULL) && copyto!(bufs.send_top,   @view(A[2    , :]))
-    (neighbors.bottom != MPI.PROC_NULL) && copyto!(bufs.send_bottom, @view(A[end-1, :]))
+    (neighbors.up   != MPI.PROC_NULL) && copyto!(bufs.send_up,   @view(A[2    , :]))
+    (neighbors.down != MPI.PROC_NULL) && copyto!(bufs.send_down, @view(A[end-1, :]))
 
     reqs = MPI.MultiRequest(4)
-    (neighbors.top    != MPI.PROC_NULL) && # TODO: receive from top neighbor into bufs.recv_top
-    (neighbors.bottom != MPI.PROC_NULL) && # TODO: receive from bottom neighbor into bufs.recv_bottom
+    (neighbors.up   != MPI.PROC_NULL) && # TODO: receive from up neighbor into bufs.recv_up
+    (neighbors.down != MPI.PROC_NULL) && # TODO: receive from down neighbor into bufs.recv_down
 
-    (neighbors.top    != MPI.PROC_NULL) && # TODO: send bufs.send_top to top neighbor
-    (neighbors.bottom != MPI.PROC_NULL) && # TODO: send bufs.send_bottom to bottom neighbor
+    (neighbors.up   != MPI.PROC_NULL) && # TODO: send bufs.send_up to up neighbor
+    (neighbors.down != MPI.PROC_NULL) && # TODO: send bufs.send_down to down neighbor
     MPI.Waitall(reqs) # blocking
 
-    (neighbors.top    != MPI.PROC_NULL) && copyto!(@view(A[1  , :]), bufs.recv_top)
-    (neighbors.bottom != MPI.PROC_NULL) && copyto!(@view(A[end, :]), bufs.recv_bottom)
+    (neighbors.up   != MPI.PROC_NULL) && copyto!(@view(A[1  , :]), bufs.recv_up)
+    (neighbors.down != MPI.PROC_NULL) && copyto!(@view(A[end, :]), bufs.recv_down)
     return nothing
 end
 
 function init_bufs(A)
-    return (; send_top  = zeros(size(A, 2)), send_bottom = zeros(size(A, 2)),
-              send_left = zeros(size(A, 1)), send_right  = zeros(size(A, 1)),
-              recv_top  = zeros(size(A, 2)), recv_bottom = zeros(size(A, 2)),
-              recv_left = zeros(size(A, 1)), recv_right  = zeros(size(A, 1)))
+    return (; send_up   = zeros(size(A, 2)), send_down  = zeros(size(A, 2)),
+              send_left = zeros(size(A, 1)), send_right = zeros(size(A, 1)),
+              recv_up   = zeros(size(A, 2)), recv_down  = zeros(size(A, 2)),
+              recv_left = zeros(size(A, 1)), recv_right = zeros(size(A, 1)))
 end
 
 function run_diffusion(; ns=128, nt=1000, do_save=false)
@@ -85,7 +85,7 @@ function run_diffusion(; ns=128, nt=1000, do_save=false)
     coords    = MPI.Cart_coords(comm_cart) |> Tuple
     x_neighs  = MPI.Cart_shift(comm_cart, 1, 1)
     y_neighs  = MPI.Cart_shift(comm_cart, 0, 1)
-    neighbors = (; left=x_neighs[1], right=x_neighs[2], top=y_neighs[1], bottom=y_neighs[2])
+    neighbors = (; left=x_neighs[1], right=x_neighs[2], up=y_neighs[1], down=y_neighs[2])
     (rank == 0) && println("nprocs = $(nprocs), dims = $dims")
 
     params = init_params_mpi(; dims, coords, ns, nt, do_save)

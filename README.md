@@ -1,7 +1,5 @@
 # JuliaHLRS24
 
-**NOTE: THIS REPOSITORY IS STILL UNDER PREPARATION**
-
 A four-day workshop that will take place in Stuttgart at the [High Performance Computing Center Stuttgart (HLRS)](https://www.hlrs.de/) in September 2024.
 
 **Course page:** https://www.hlrs.de/training/2024/julia   

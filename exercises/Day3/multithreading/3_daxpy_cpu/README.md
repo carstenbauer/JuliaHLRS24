@@ -29,11 +29,11 @@ Because the kernel is all about data access, we can use it to
 * try to estimate the **maximal memory bandwidth** of a system
 * learn about the effect of **thread pinning** and **NUMA** (non-uniform memory access)
 
-Before we start with the actual exercise tasks, let's give a little bit of background and explore the architecture of a Noctua 2 node.
+Before we start with the actual exercise tasks, let's give a little bit of background.
 
 ## Background: NUMA in a nutshell
 
-**Remark:** We will consider a AMD CPU below. The cluster that we're using as part of the course might have a different CPU with a different number of NUMA domains.
+**Remark:** We will consider a AMD CPU below. The cluster that we're using as part of the course might have a different CPU with a different number of NUMA domains!
 
 This is the schematic topology of a (Zen3) AMD CPU (typically there are two of those in a cluster node):
 
@@ -78,5 +78,7 @@ The columns (`:serial`, `:parallel`) indicate how the data was initialized. The 
     1. **Hint 1:** Why is the pinning irrelevant in the `:serial:` case?
     2. **Hint 2:** Take (approximate) ratios of the numbers (e.g. "`:parallel / :serial`" for different pinning strategies).
     3. **Hint 3:** How many sockets does a compute node have? How many memory domains are there in total?
+
+6. Compare the results that you've obtained for `:static` and `:dynamic`. Can you explain (qualitatively) how the performance difference comes about?
 
 7. **Bonus:** Let's perform a scaling analysis and, among others, run a performance measurement with one Julia thread per core. This will give us a (crude) empirical estimate for the maximal memory bandwidth of a compute node. We've already prepared the Julia script `daxpy_cpu_scaling.jl` for this, which produces tabular output as well as a scaling plot. Run the scaling analysis via `qsub job_script_scaling.sh` and (after maybe ~15 minutes) inspect the results.

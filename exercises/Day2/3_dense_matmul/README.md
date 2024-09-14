@@ -6,7 +6,7 @@ $C_{rc} = \sum_{k=1}^{n} A_{rk} B_{kc}$
 
 for square matrices $A$, $B$, and $C$ of size $n \times n$. Despite being seemingly simple, you will see that different implementations have vastly different performance.
 
-**Note: Ideally, this exercise should be done on a cluster compute node. You can either follow the instructions below or use the Jupyter notebook `dense_matmul.ipynb`.**
+**Note: Ideally, this exercise should be done on a cluster compute node (but it's not required). You can either follow the instructions below or use the Jupyter notebook `dense_matmul.ipynb`.**
 
 ## Tasks
 
